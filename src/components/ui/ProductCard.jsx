@@ -1,11 +1,16 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../../constants/products';
 
-const ProductCard = ({ id, name, subtitle, price, image, badge }) => {
+const ProductCard = ({ product, onEnquire }) => {
+  const { id, name, short_description: subtitle, is_best_seller, product_images } = product;
+  const primaryImage = product_images?.find(img => img.is_primary)?.image_url;
+  const fallbackImage = product_images?.[0]?.image_url;
+  const image = primaryImage || fallbackImage || '/assets/images/hero.png';
+  const badge = is_best_seller ? 'Bestseller' : null;
+
   return (
-    <Link to={`/products/${id}`} className="group flex flex-col bg-white border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-500 overflow-hidden relative">
+    <div className="group flex flex-col bg-white border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-500 overflow-hidden relative">
       {/* Badge (optional) */}
       {badge && (
         <div className="absolute top-4 left-4 z-10 bg-white border border-[var(--color-border)] px-3 py-1 text-[8px] uppercase tracking-[0.2em] font-bold text-[#261744] shadow-sm">
@@ -14,7 +19,7 @@ const ProductCard = ({ id, name, subtitle, price, image, badge }) => {
       )}
 
       {/* Image Area */}
-      <div className="flex-1 flex items-center justify-center bg-[#F8F6F3] overflow-hidden aspect-square border-b border-[var(--color-border)] relative">
+      <Link to={`/products/${id}`} className="flex-1 flex items-center justify-center bg-[#F8F6F3] overflow-hidden aspect-square border-b border-[var(--color-border)] relative">
         <img
           src={image}
           alt={name}
@@ -28,25 +33,28 @@ const ProductCard = ({ id, name, subtitle, price, image, badge }) => {
             View Details <ArrowRight size={12} />
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Details */}
-      <div className="p-6 text-center bg-white flex flex-col h-[160px] justify-between">
+      <div className="p-6 text-center bg-white flex flex-col h-[180px] justify-between">
         <div>
-          <h3 className="text-[12px] font-bold uppercase tracking-[0.15em] mb-1.5" style={{ color: '#261744' }}>
+          <h3 className="text-[12px] font-bold uppercase tracking-[0.15em] mb-1.5 line-clamp-1" style={{ color: '#261744' }} title={name}>
             {name}
           </h3>
-          <p className="text-[10px] font-light leading-relaxed mb-4 uppercase tracking-[0.1em]" style={{ color: '#A08C8A' }}>
+          <p className="text-[10px] font-light leading-relaxed mb-4 uppercase tracking-[0.1em] line-clamp-2" style={{ color: '#A08C8A' }} title={subtitle}>
             {subtitle}
           </p>
         </div>
-        <div className="pt-4 border-t border-[#F0EBE3]">
-          <p className="text-[13px] font-serif" style={{ color: '#261744' }}>
-            {formatPrice(price)}
-          </p>
+        <div className="pt-4 border-t border-[#F0EBE3] flex gap-2">
+          <Link to={`/products/${id}`} className="flex-1 text-[9px] border border-[#261744] text-[#261744] py-3 uppercase tracking-[0.15em] font-bold hover:bg-gray-50 flex items-center justify-center transition-colors">
+            View Product
+          </Link>
+          <button onClick={() => onEnquire(product)} className="flex-1 text-[9px] bg-[#261744] text-white py-3 uppercase tracking-[0.15em] font-bold hover:bg-[#3d256e] flex items-center justify-center transition-colors">
+            Enquire Now
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

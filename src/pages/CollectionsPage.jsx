@@ -1,8 +1,48 @@
-import React from 'react';
-import { ProductCard } from '../components/ui';
-import { PRODUCTS } from '../constants/products';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { ProductCard, EnquiryModal } from '../components/ui';
 
 const CollectionsPage = () => {
+  const [searchParams] = useSearchParams();
+  const collectionId = searchParams.get('collection_id');
+  const bestSeller = searchParams.get('best_seller');
+  
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [enquiryProduct, setEnquiryProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        
+        // Build URL with query params
+        const urlParams = new URLSearchParams();
+        if (collectionId) urlParams.append('collection_id', collectionId);
+        if (bestSeller) urlParams.append('best_seller', bestSeller);
+
+        const url = `${supabaseUrl}/functions/v1/products${urlParams.toString() ? `?${urlParams.toString()}` : ''}`;
+
+        const response = await fetch(url, {
+          headers: {
+            'apikey': supabaseKey
+          }
+        });
+        const json = await response.json();
+        if (json.success && json.data) {
+          setProducts(json.data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch products', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, [collectionId, bestSeller]);
+
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[#FAF9F6]">
       {/* 1. Header Section */}
@@ -25,17 +65,25 @@ const CollectionsPage = () => {
           <button className="hover:text-[var(--color-gold)] transition-colors hidden sm:block">Sort By</button>
         </div>
         <div>
-          <span>{PRODUCTS.length} Products</span>
+          <span>{products.length} Products</span>
         </div>
       </section>
 
       {/* 3. Product Grid */}
       <section className="max-w-screen-xl mx-auto px-6 lg:px-16 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {PRODUCTS.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="text-center py-20 text-[#261744]">Loading...</div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <ProductCard 
+                key={product.id} 
+                product={product}
+                onEnquire={setEnquiryProduct}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* 4. Bottom CTA */}
@@ -48,6 +96,12 @@ const CollectionsPage = () => {
           Contact Concierge
         </a>
       </section>
+
+      <EnquiryModal 
+        isOpen={!!enquiryProduct} 
+        onClose={() => setEnquiryProduct(null)} 
+        product={enquiryProduct} 
+      />
     </main>
   );
 };

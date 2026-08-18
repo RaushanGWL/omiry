@@ -1,66 +1,88 @@
-// src/sections/BestProductSection.jsx
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { CATEGORIES } from '../constants'; // Using CATEGORIES for layout demonstration
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ProductCard, EnquiryModal } from '../components/ui';
 
-const CategoryCard = ({ title, subtitle, image, href }) => (
-  <a
-    href={href}
-    className="group flex flex-col bg-white border-r border-b border-[var(--color-border)]
-               last:border-r-0 hover:shadow-md transition-shadow duration-500 cursor-pointer"
-  >
-    {/* Image area */}
-    <div className="flex-1 flex items-center justify-center bg-[#F2EDE6] overflow-hidden h-[220px]">
-      <img
-        src={image}
-        alt={title}
-        className="h-full w-full object-contain object-center p-5
-                   transform group-hover:scale-[1.04] transition-transform duration-700"
-        loading="lazy"
+const BestProductSection = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [enquiryProduct, setEnquiryProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchBestSellers = async () => {
+      try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        
+        const response = await fetch(`${supabaseUrl}/functions/v1/products?best_seller=true`, {
+          headers: {
+            'apikey': supabaseKey
+          }
+        });
+        const json = await response.json();
+        if (json.success && json.data) {
+          // Limit to 4 for the section layout
+          setProducts(json.data.slice(0, 4));
+        }
+      } catch (error) {
+        console.error('Failed to fetch best sellers', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBestSellers();
+  }, []);
+
+  return (
+    <section
+      id="best-product"
+      className="bg-white border-b border-[var(--color-border)] py-14"
+      aria-labelledby="best-product-heading"
+    >
+      {/* Section label + diamond pip */}
+      <div className="text-center mb-10">
+        <p id="best-product-heading" className="uppercase tracking-[0.3em]" style={{ color: '#261744', fontSize: '18px', fontWeight: '800' }}>Our Best Product</p>
+        <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
+          <span className="w-6 h-px bg-[var(--color-border)] block" />
+          <span className="text-[9px]" style={{ color: '#B8954A' }}>✦</span>
+          <span className="w-6 h-px bg-[var(--color-border)] block" />
+        </div>
+      </div>
+
+      {/* Card grid — no gap, 1px border between */}
+      <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
+        {loading ? (
+          <div className="text-center py-10 text-[#261744]">Loading best sellers...</div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.map(product => (
+                <ProductCard 
+                  key={product.id} 
+                  product={product} 
+                  onEnquire={setEnquiryProduct} 
+                />
+              ))}
+            </div>
+
+            <div className="mt-12 flex justify-center">
+              <Link 
+                to="/collections?best_seller=true" 
+                className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] border border-[#261744] text-[#261744] py-3 px-8 hover:bg-[#261744] hover:text-white transition-colors"
+              >
+                View All Bestsellers
+              </Link>
+            </div>
+          </>
+        )}
+      </div>
+
+      <EnquiryModal 
+        isOpen={!!enquiryProduct} 
+        onClose={() => setEnquiryProduct(null)} 
+        product={enquiryProduct} 
       />
-    </div>
-
-    {/* Bottom text */}
-    <div className="px-5 pt-4 pb-5 border-t border-[var(--color-border)]">
-      <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: '#261744' }}>
-        {title}
-      </h3>
-      <p className="text-[11px] font-light mb-4 leading-relaxed" style={{ color: '#A08C8A' }}>
-        {subtitle}
-      </p>
-      <span className="link-arrow" style={{ color: '#2D1B4E' }}>
-        Discover <ArrowRight size={11} strokeWidth={1.5} />
-      </span>
-    </div>
-  </a>
-);
-
-const BestProductSection = () => (
-  <section
-    id="best-product"
-    className="bg-white border-b border-[var(--color-border)] py-14"
-    aria-labelledby="best-product-heading"
-  >
-    {/* Section label + diamond pip */}
-    <div className="text-center mb-10">
-      <p id="best-product-heading" className="uppercase tracking-[0.3em]" style={{ color: '#261744', fontSize: '18px', fontWeight: '800' }}>Our Best Product</p>
-      <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
-        <span className="w-6 h-px bg-[var(--color-border)] block" />
-        <span className="text-[9px]" style={{ color: '#B8954A' }}>✦</span>
-        <span className="w-6 h-px bg-[var(--color-border)] block" />
-      </div>
-    </div>
-
-    {/* Card grid — no gap, 1px border between */}
-    <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-                      border-l border-t border-[var(--color-border)]">
-        {CATEGORIES.map(cat => (
-          <CategoryCard key={cat.id} {...cat} />
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default BestProductSection;

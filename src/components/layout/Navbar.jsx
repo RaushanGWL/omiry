@@ -7,7 +7,7 @@ import useScrolled from '../../hooks/useScrolled';
 const LEFT  = [
   { label: 'Home', href: '/' },
   { label: 'Collections', href: '/collections', chevron: true },
-  { label: 'Bestsellers', href: '#' },
+  { label: 'Bestsellers', href: '/collections?best_seller=true' },
   { label: 'About',       href: '/about' },
 ];
 const RIGHT = [
@@ -80,16 +80,17 @@ const Navbar = () => {
           <span className="w-px h-4 bg-[var(--color-border)] mx-1" aria-hidden="true" />
 
           {/* Icon buttons */}
-          {[
-            { Icon: Search,      label: 'Search' },
-            { Icon: User,        label: 'Account' },
-          ].map(({ Icon, label }) => (
-            <button key={label} aria-label={label}
-              className="text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
-            >
-              <Icon size={17} strokeWidth={1.5} />
-            </button>
-          ))}
+          <button aria-label="Search"
+            className="text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
+          >
+            <Search size={17} strokeWidth={1.5} />
+          </button>
+          
+          <Link to="/login" aria-label="Account"
+            className="text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
+          >
+            <User size={17} strokeWidth={1.5} />
+          </Link>
 
           <button aria-label="Cart – 0 items"
             className="relative text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"

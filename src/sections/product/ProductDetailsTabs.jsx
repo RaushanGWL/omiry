@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Leaf, Hand, Sparkles, Heart } from 'lucide-react'; // Mocking some icons, we'll use generic ones close to the design
 
-const ProductDetailsTabs = () => {
+const ProductDetailsTabs = ({ product }) => {
   const [activeTab, setActiveTab] = useState('DETAILS');
 
   const tabs = [
@@ -15,7 +15,7 @@ const ProductDetailsTabs = () => {
     DETAILS: (
       <>
         <p className="mb-4">
-          Carved from premium natural clear quartz, this Ganesha sculpture embodies clarity, energy, and spiritual harmony. The crystal is hand-polished to a luminous finish and highlighted with intricate 24K gold accents that elevate its divine presence.
+          {product?.description || "Carved from premium natural clear quartz, this Ganesha sculpture embodies clarity, energy, and spiritual harmony. The crystal is hand-polished to a luminous finish and highlighted with intricate 24K gold accents that elevate its divine presence."}
         </p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
           <li>Brings wisdom, prosperity, and protection to your space</li>

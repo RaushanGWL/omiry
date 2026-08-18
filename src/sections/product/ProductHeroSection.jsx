@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Plane, ShieldCheck, Award, Minus, Plus, Search } from 'lucide-react';
+import { ChevronRight, Plane, ShieldCheck, Award, Search } from 'lucide-react';
 import { Button } from '../../components/ui';
-import { PRODUCTS, formatPrice } from '../../constants/products';
 
-const ProductHeroSection = () => {
-  const [quantity, setQuantity] = useState(1);
+const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // We'll mock the data for "Crystal Ganesha Sculpture" for this example
-  const product = {
-    name: 'Crystal Ganesha Sculpture',
-    subtitle: 'Handcrafted natural gemstone sculpture',
-    price: 8900,
-    reviews: 24,
-    rating: 5,
-    description: 'A radiant symbol of wisdom and new beginnings, this Crystal Ganesha is meticulously handcrafted from natural clear quartz and adorned with 24K gold accents. Each detail reflects devotion, protection, and timeless artistry.',
+  // Map API data to what the UI expects
+  const displayProduct = {
+    name: apiProduct?.name || 'Crystal Ganesha Sculpture',
+    subtitle: apiProduct?.short_description || 'Handcrafted natural gemstone sculpture',
+    reviews: 24, // Mocked as not in API
+    rating: 5,   // Mocked as not in API
+    description: apiProduct?.description || 'A radiant symbol of wisdom and new beginnings, this Crystal Ganesha is meticulously handcrafted from natural clear quartz and adorned with 24K gold accents. Each detail reflects devotion, protection, and timeless artistry.',
     details: [
-      { label: 'MATERIAL', value: 'Natural Clear Quartz, 24K Gold Accents' },
-      { label: 'ORIGIN', value: 'India' },
-      { label: 'FINISH', value: 'Polished with Hand-Gilded Detailing' },
-      { label: 'DIMENSIONS', value: 'H 9.5 in x W 8.2 in x D 6.0 in' },
-      { label: 'WEIGHT', value: '6.2 kg' },
-      { label: 'AUTHENTICITY', value: 'Includes Certificate of Authenticity' },
-    ],
-    images: [
-      '/assets/images/crystal_deity.png',
-      '/assets/images/crystal_deity.png',
-      '/assets/images/crystal_deity.png',
-      '/assets/images/crystal_deity.png',
-    ],
+      { label: 'MATERIAL', value: apiProduct?.material },
+      { label: 'ORIGIN', value: apiProduct?.origin },
+      { label: 'FINISH', value: apiProduct?.finish },
+      { label: 'DIMENSIONS', value: apiProduct?.dimensions },
+      { label: 'WEIGHT', value: apiProduct?.weight ? `${apiProduct.weight} ${apiProduct.weight_unit || 'kg'}` : null },
+      { label: 'AUTHENTICITY', value: apiProduct?.authenticity },
+    ].filter(d => d.value),
+    images: apiProduct?.product_images?.length 
+      ? [...apiProduct.product_images].sort((a,b) => a.sort_order - b.sort_order).map(img => img.image_url) 
+      : [
+          '/assets/images/crystal_deity.png',
+          '/assets/images/crystal_deity.png',
+          '/assets/images/crystal_deity.png',
+          '/assets/images/crystal_deity.png',
+        ],
   };
 
   const handleQuantityChange = (delta) => {
@@ -48,7 +47,7 @@ const ProductHeroSection = () => {
           <ChevronRight size={12} className="mx-2" />
           <span className="hover:text-[var(--color-brand-dark)] transition-colors cursor-pointer">Spiritual Sculptures</span>
           <ChevronRight size={12} className="mx-2" />
-          <span className="text-[var(--color-brand-dark)]">{product.name}</span>
+          <span className="text-[var(--color-brand-dark)]">{displayProduct.name}</span>
         </nav>
 
         <div className="flex flex-col lg:flex-row gap-12 xl:gap-20">
@@ -58,7 +57,7 @@ const ProductHeroSection = () => {
             
             {/* Thumbnails */}
             <div className="hidden sm:flex flex-col gap-4 w-20 xl:w-24 shrink-0">
-              {product.images.map((img, idx) => (
+              {displayProduct.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
@@ -79,8 +78,8 @@ const ProductHeroSection = () => {
             {/* Main Image */}
             <div className="flex-1 relative bg-white border border-[var(--color-border)] aspect-[4/5] sm:aspect-square lg:aspect-[4/5] xl:aspect-square overflow-hidden group flex items-center justify-center">
               <img
-                src={product.images[activeImageIndex]}
-                alt={product.name}
+                src={displayProduct.images[activeImageIndex]}
+                alt={displayProduct.name}
                 className="w-[85%] h-[85%] object-contain"
               />
               <button className="absolute bottom-6 right-6 bg-white rounded-full p-3 shadow-md hover:scale-105 transition-transform text-[#261744]">
@@ -92,10 +91,10 @@ const ProductHeroSection = () => {
           {/* Right Column: Product Info */}
           <div className="w-full lg:w-[400px] xl:w-[460px] flex flex-col justify-start pt-2">
             <h1 className="font-serif text-[2.2rem] leading-tight mb-2 text-[#261744]">
-              {product.name}
+              {displayProduct.name}
             </h1>
             <p className="text-[12px] font-light text-[#5A5058] uppercase tracking-[0.1em] mb-4">
-              {product.subtitle}
+              {displayProduct.subtitle}
             </p>
 
             <div className="flex items-center gap-2 mb-6">
@@ -104,11 +103,7 @@ const ProductHeroSection = () => {
                   <span key={i} className="text-sm">★</span>
                 ))}
               </div>
-              <span className="text-[11px] text-[#A08C8A]">({product.reviews} reviews)</span>
-            </div>
-
-            <div className="font-serif text-[1.75rem] text-[#261744] mb-6">
-              {formatPrice(product.price)}
+              <span className="text-[11px] text-[#A08C8A]">({displayProduct.reviews} reviews)</span>
             </div>
 
             {/* Divider */}
@@ -119,12 +114,12 @@ const ProductHeroSection = () => {
             </div>
 
             <p className="text-[13px] font-light text-[#5A5058] leading-[1.8] mb-8">
-              {product.description}
+              {displayProduct.description}
             </p>
 
             {/* Details Grid */}
             <div className="flex flex-col gap-4 mb-8">
-              {product.details.map((detail, idx) => (
+              {displayProduct.details.map((detail, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 text-[11px]">
                   <span className="uppercase tracking-[0.15em] font-semibold text-[#261744] sm:w-28 shrink-0">
                     {detail.label}
@@ -137,25 +132,12 @@ const ProductHeroSection = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center border border-[var(--color-border)] bg-white h-12 w-32">
-                <button onClick={() => handleQuantityChange(-1)} className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-[#5A5058]">
-                  <Minus size={14} />
-                </button>
-                <span className="w-8 text-center text-[13px] font-medium text-[#261744]">{quantity}</span>
-                <button onClick={() => handleQuantityChange(1)} className="flex-1 h-full flex items-center justify-center hover:bg-gray-50 text-[#5A5058]">
-                  <Plus size={14} />
-                </button>
-              </div>
-            </div>
-
             <div className="flex flex-col gap-3 mb-10">
-              <button className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-12 border border-[#261744] text-[#261744] hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                ADD TO CART
-              </button>
-              <button className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-12 bg-[#261744] text-white hover:bg-[#382266] transition-colors">
-                BUY NOW
+              <button 
+                onClick={() => onEnquire(apiProduct)} 
+                className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-14 bg-[#261744] text-white hover:bg-[#3d256e] transition-colors"
+              >
+                ENQUIRE NOW
               </button>
             </div>
 

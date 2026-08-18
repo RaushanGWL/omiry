@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { PRODUCTS } from '../../constants/products';
 import { ProductCard } from '../../components/ui';
 
-const RelatedProductsSection = () => {
-  // Grab 4 products for the 'You May Also Like' section
-  const relatedProducts = PRODUCTS.slice(0, 4);
+const RelatedProductsSection = ({ onEnquire }) => {
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        
+        const response = await fetch(`${supabaseUrl}/functions/v1/products`, {
+          headers: {
+            'apikey': supabaseKey
+          }
+        });
+        const json = await response.json();
+        if (json.success && json.data) {
+          // Grab 4 products for the 'You May Also Like' section
+          setRelatedProducts(json.data.slice(0, 4));
+        }
+      } catch (error) {
+        console.error('Failed to fetch related products', error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  if (relatedProducts.length === 0) return null;
 
   return (
     <section className="bg-[#FAF9F6] py-16 border-t border-[var(--color-border)]">
@@ -28,7 +51,7 @@ const RelatedProductsSection = () => {
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard key={product.id} product={product} onEnquire={onEnquire} />
             ))}
           </div>
         </div>
