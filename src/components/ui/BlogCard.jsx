@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const BlogCard = ({ title, excerpt, date, category, image }) => {
+const BlogCard = ({ id, title, excerpt, date, category, image }) => {
   return (
-    <article className="group flex flex-col bg-white border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-500 overflow-hidden cursor-pointer h-full">
+    <Link to={`/blog/${id}`} className="group flex flex-col bg-white border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-500 overflow-hidden cursor-pointer h-full">
       {/* Image Area */}
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -35,7 +36,7 @@ const BlogCard = ({ title, excerpt, date, category, image }) => {
           Read Article <ArrowRight size={12} className="ml-2" />
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 

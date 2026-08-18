@@ -9,6 +9,7 @@ import CollectionsPage from './pages/CollectionsPage';
 import ProductPage from './pages/ProductPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import ArticlePage from './pages/ArticlePage';
 import LoginPage from './pages/LoginPage';
 
 const App = () => (
@@ -32,6 +33,7 @@ const App = () => (
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<ArticlePage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
 

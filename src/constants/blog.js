@@ -6,7 +6,28 @@ export const BLOG_POSTS = [
     date: 'August 12, 2026',
     author: 'Omriy Jean',
     image: 'https://images.unsplash.com/photo-1542840410-3092f99611a3?auto=format&fit=crop&q=80&w=800',
-    category: 'Craftsmanship'
+    category: 'Craftsmanship',
+    content: `
+      <h2>The Ancient Tradition of Gemstone Carving</h2>
+      <p>The practice of <strong>gemstone carving</strong> is a delicate and ancient art form that has been passed down through generations of master artisans. Transforming raw, unpolished crystals into exquisite, energetic works of art requires not only exceptional technical skill but also a deep spiritual connection to the stone itself.</p>
+      
+      <h3>Selecting the Perfect Raw Crystal</h3>
+      <p>Every masterpiece begins with the stone. Our artisans spend hours examining raw materials—whether it's the deep purples of an Amethyst geode or the soothing greens of Aventurine. They look for the natural fault lines, color variations, and the inherent energy of the stone to determine what shape it is destined to become.</p>
+
+      <h3>The Master Artisan's Technique</h3>
+      <p>Unlike traditional sculpting, carving natural gemstone requires extreme precision and patience. Crystals have specific cleavage planes, meaning one wrong strike can shatter a rare specimen. Utilizing diamond-tipped tools and centuries-old water-cooling methods, the artisan slowly reveals the form hidden within.</p>
+      
+      <ul>
+        <li><strong>Roughing Out:</strong> The initial stage where the basic silhouette is formed using larger diamond saws.</li>
+        <li><strong>Refining:</strong> Specialized burrs and drills are used to carve intricate details like the serene features of a Buddha or the majestic mane of a lion.</li>
+        <li><strong>Polishing:</strong> The final and most crucial step. Using increasingly finer grades of diamond paste, the stone is buffed to a mirror-like finish, bringing out its maximum color and luster.</li>
+      </ul>
+
+      <h3>Energetic Preservation</h3>
+      <p>At OMRIY, we believe that how a stone is treated during the carving process affects its final energetic vibration. Our artisans work with utmost respect, frequently pausing to cleanse the stones in natural water, ensuring that the spiritual purity of the gemstone is maintained from the earth to your luxury space.</p>
+
+      <p>To view our latest masterpieces, explore our <a href="/collections" style="color: #B8954A; text-decoration: underline;">Featured Collections</a> and discover the perfect carved gemstone to elevate your home.</p>
+    `
   },
   {
     id: '2',
