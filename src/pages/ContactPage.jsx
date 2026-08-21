@@ -14,14 +14,14 @@ const ContactPage = () => {
   };
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[#FAF9F6]">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
       
       {/* Hero Section */}
       <section className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)]">
-        <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[#261744]">
+        <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[var(--color-brand-dark)]">
           Get in Touch
         </h1>
-        <p className="text-[13px] font-light text-[#5A5058] max-w-xl mx-auto leading-relaxed">
+        <p className="text-[13px] font-light text-[var(--color-text-body)] max-w-xl mx-auto leading-relaxed">
           Whether you have a question about our collections, need assistance with an order, or wish to commission a bespoke piece, our concierge team is here to assist you.
         </p>
       </section>
@@ -32,17 +32,17 @@ const ContactPage = () => {
           
           {/* Left Column: Contact Info */}
           <div className="flex-1">
-            <h2 className="font-serif text-[1.75rem] text-[#261744] mb-8">Contact Information</h2>
+            <h2 className="font-serif text-[1.75rem] text-[var(--color-brand-dark)] mb-8">Contact Information</h2>
             
             <div className="space-y-10">
               <div>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">Customer Service</h3>
-                <p className="text-[13px] font-light text-[#5A5058] mb-1">
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">Customer Service</h3>
+                <p className="text-[13px] font-light text-[var(--color-text-body)] mb-1">
                   <a href="mailto:concierge@omriy.com" className="hover:text-[var(--color-gold)] transition-colors">
                     concierge@omriy.com
                   </a>
                 </p>
-                <p className="text-[13px] font-light text-[#5A5058]">
+                <p className="text-[13px] font-light text-[var(--color-text-body)]">
                   <a href="tel:+18001234567" className="hover:text-[var(--color-gold)] transition-colors">
                     +1 (800) 123-4567
                   </a>
@@ -50,8 +50,8 @@ const ContactPage = () => {
               </div>
               
               <div>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">Studio & Showroom</h3>
-                <p className="text-[13px] font-light text-[#5A5058] leading-relaxed">
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">Studio & Showroom</h3>
+                <p className="text-[13px] font-light text-[var(--color-text-body)] leading-relaxed">
                   123 Artisan Avenue<br />
                   Suite 400<br />
                   New York, NY 10012<br />
@@ -60,8 +60,8 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">Business Hours</h3>
-                <p className="text-[13px] font-light text-[#5A5058] leading-relaxed">
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">Business Hours</h3>
+                <p className="text-[13px] font-light text-[var(--color-text-body)] leading-relaxed">
                   Monday – Friday<br />
                   9:00 AM – 6:00 PM (EST)
                 </p>
@@ -71,43 +71,43 @@ const ContactPage = () => {
 
           {/* Right Column: Contact Form */}
           <div className="flex-1 bg-[#FDFCFB] p-8 md:p-14 border border-[var(--color-border)]">
-            <h2 className="font-serif text-[1.75rem] text-[#261744] mb-8 text-center md:text-left">Send a Message</h2>
+            <h2 className="font-serif text-[1.75rem] text-[var(--color-brand-dark)] mb-8 text-center md:text-left">Send a Message</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">
+                  <label htmlFor="name" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">
                     Full Name
                   </label>
                   <input 
                     type="text" 
                     id="name" 
                     required
-                    className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[#261744] focus:outline-none focus:border-[#261744] focus:ring-1 focus:ring-[#261744] transition-all"
+                    className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[var(--color-brand-dark)] focus:outline-none focus:border-[var(--color-brand-dark)] focus:ring-1 focus:ring-[var(--color-brand-dark)] transition-all"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">
+                  <label htmlFor="email" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">
                     Email Address
                   </label>
                   <input 
                     type="email" 
                     id="email" 
                     required
-                    className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[#261744] focus:outline-none focus:border-[#261744] focus:ring-1 focus:ring-[#261744] transition-all"
+                    className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[var(--color-brand-dark)] focus:outline-none focus:border-[var(--color-brand-dark)] focus:ring-1 focus:ring-[var(--color-brand-dark)] transition-all"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">
+                <label htmlFor="phone" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">
                   Mobile Number
                 </label>
-                <div className="flex border border-[var(--color-border)] bg-white focus-within:border-[#261744] focus-within:ring-1 focus-within:ring-[#261744] transition-all">
+                <div className="flex border border-[var(--color-border)] bg-white focus-within:border-[var(--color-brand-dark)] focus-within:ring-1 focus-within:ring-[var(--color-brand-dark)] transition-all">
                   <select 
-                    className="w-24 border-r border-[var(--color-border)] bg-transparent px-2 py-3 text-[13px] text-[#261744] focus:outline-none cursor-pointer"
+                    className="w-24 border-r border-[var(--color-border)] bg-transparent px-2 py-3 text-[13px] text-[var(--color-brand-dark)] focus:outline-none cursor-pointer"
                     defaultValue="+1"
                   >
                     {COUNTRY_CODES.map((item, idx) => (
@@ -119,18 +119,18 @@ const ContactPage = () => {
                   <input 
                     type="tel" 
                     id="phone" 
-                    className="flex-1 px-4 py-3 text-[13px] text-[#261744] bg-transparent focus:outline-none"
+                    className="flex-1 px-4 py-3 text-[13px] text-[var(--color-brand-dark)] bg-transparent focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">
+                <label htmlFor="subject" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">
                   Subject
                 </label>
                 <select 
                   id="subject"
-                  className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[#261744] focus:outline-none focus:border-[#261744] focus:ring-1 focus:ring-[#261744] transition-all rounded-none cursor-pointer"
+                  className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[var(--color-brand-dark)] focus:outline-none focus:border-[var(--color-brand-dark)] focus:ring-1 focus:ring-[var(--color-brand-dark)] transition-all rounded-none cursor-pointer"
                 >
                   <option value="general">General Inquiry</option>
                   <option value="order">Order Status</option>
@@ -140,19 +140,19 @@ const ContactPage = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[#261744] mb-3">
+                <label htmlFor="message" className="block text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">
                   Message
                 </label>
                 <textarea 
                   id="message" 
                   rows="5" 
                   required
-                  className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[#261744] focus:outline-none focus:border-[#261744] focus:ring-1 focus:ring-[#261744] transition-all resize-none"
+                  className="w-full border border-[var(--color-border)] bg-white px-4 py-3 text-[13px] text-[var(--color-brand-dark)] focus:outline-none focus:border-[var(--color-brand-dark)] focus:ring-1 focus:ring-[var(--color-brand-dark)] transition-all resize-none"
                 ></textarea>
               </div>
 
               <div className="pt-2">
-                <button type="submit" className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-12 bg-[#261744] text-white hover:bg-[#382266] transition-colors">
+                <button type="submit" className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-12 bg-[var(--color-brand-dark)] text-white hover:bg-[#382266] transition-colors">
                   Send Message
                 </button>
               </div>

@@ -13,12 +13,12 @@ const AboutHeroSection = () => {
                       py-16 md:py-20 order-2 md:order-1">
 
         {/* Label */}
-        <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-6" style={{ color: '#B8954A' }}>
+        <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-6" style={{ color: 'var(--color-gold)' }}>
           About OMRIY
         </p>
 
         {/* Heading */}
-        <h1 className="font-serif font-normal leading-[1.15] text-[#261744] text-[2.5rem] md:text-[3.2rem] mb-4">
+        <h1 className="font-serif font-normal leading-[1.15] text-[var(--color-brand-dark)] text-[2.5rem] md:text-[3.2rem] mb-4">
           <span className="inline-block whitespace-nowrap">
             <span style={{ fontVariant: 'small-caps' }}>Crafted</span> by <span style={{ fontVariant: 'small-caps' }}>Nature.</span>
           </span>
@@ -30,9 +30,9 @@ const AboutHeroSection = () => {
 
         {/* Gold divider */}
         <div className="flex items-center gap-3 mb-7" aria-hidden="true">
-          <span className="w-20 h-[1px] bg-gradient-to-r from-[#261744]/10 to-[#B8954A]/60 block" />
+          <span className="w-20 h-[1px] bg-gradient-to-r from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
           <span className="text-[var(--color-gold)] text-[10px]">✦</span>
-          <span className="w-20 h-[1px] bg-gradient-to-l from-[#261744]/10 to-[#B8954A]/60 block" />
+          <span className="w-20 h-[1px] bg-gradient-to-l from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
         </div>
 
         <p className="text-[13px] text-[var(--color-text-body)] font-light leading-[1.8] max-w-[360px] mb-10">

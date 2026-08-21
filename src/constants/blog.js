@@ -26,7 +26,7 @@ export const BLOG_POSTS = [
       <h3>Energetic Preservation</h3>
       <p>At OMRIY, we believe that how a stone is treated during the carving process affects its final energetic vibration. Our artisans work with utmost respect, frequently pausing to cleanse the stones in natural water, ensuring that the spiritual purity of the gemstone is maintained from the earth to your luxury space.</p>
 
-      <p>To view our latest masterpieces, explore our <a href="/collections" style="color: #B8954A; text-decoration: underline;">Featured Collections</a> and discover the perfect carved gemstone to elevate your home.</p>
+      <p>To view our latest masterpieces, explore our <a href="/collections" style="color: var(--color-gold); text-decoration: underline;">Featured Collections</a> and discover the perfect carved gemstone to elevate your home.</p>
     `
   },
   {

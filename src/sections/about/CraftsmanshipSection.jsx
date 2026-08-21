@@ -7,13 +7,13 @@ const SectionHeading = ({ id, label }) => (
     <p
       id={id}
       className="uppercase tracking-[0.3em]"
-      style={{ color: '#261744', fontSize: '18px', fontWeight: '800' }}
+      style={{ color: 'var(--color-brand-dark)', fontSize: '18px', fontWeight: '800' }}
     >
       {label}
     </p>
     <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
       <span className="w-6 h-px bg-[var(--color-border)] block" />
-      <span className="text-[9px]" style={{ color: '#B8954A' }}>✦</span>
+      <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
       <span className="w-6 h-px bg-[var(--color-border)] block" />
     </div>
   </div>
@@ -59,10 +59,10 @@ const CraftsmanshipSection = () => {
                     loading="lazy"
                   />
                 </div>
-                <p className="text-[9px] font-bold tracking-[0.25em] mb-1.5" style={{ color: '#B8954A' }}>
+                <p className="text-[9px] font-bold tracking-[0.25em] mb-1.5" style={{ color: 'var(--color-gold)' }}>
                   {number}
                 </p>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] mb-2 leading-snug" style={{ color: '#261744' }}>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] mb-2 leading-snug" style={{ color: 'var(--color-brand-dark)' }}>
                   {title}
                 </h3>
                 <p className="text-[10.5px] font-light leading-relaxed max-w-[115px]" style={{ color: '#9A8E98' }}>

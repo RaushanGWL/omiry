@@ -4,7 +4,7 @@ const AboutCTASection = () => {
   return (
     <section
       className="relative overflow-hidden py-16"
-      style={{ background: '#261744' }}
+      style={{ background: 'var(--color-brand-dark)' }}
       aria-label="Newsletter signup"
     >
       {/* Botanical left decoration */}
@@ -44,12 +44,12 @@ const AboutCTASection = () => {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 bg-white text-[12px] px-5 py-4 outline-none text-[#261744] placeholder-[#A08C8A]"
+              className="flex-1 bg-white text-[12px] px-5 py-4 outline-none text-[var(--color-brand-dark)] placeholder-[var(--color-text-muted)]"
               aria-label="Email address"
             />
             <button
               className="bg-white text-[10px] uppercase tracking-[0.2em] font-bold px-6 py-4 border-l border-[#E4DDD6] hover:bg-[#F5F3EF] transition-colors"
-              style={{ color: '#261744' }}
+              style={{ color: 'var(--color-brand-dark)' }}
             >
               Subscribe
             </button>

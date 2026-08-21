@@ -41,7 +41,7 @@ const AboutTestimonialSection = () => {
                    w-9 h-9 rounded-full border border-[var(--color-border)] bg-white
                    flex items-center justify-center hover:border-[var(--color-gold)] transition-colors"
       >
-        <ChevronLeft size={15} strokeWidth={1.5} style={{ color: '#261744' }} />
+        <ChevronLeft size={15} strokeWidth={1.5} style={{ color: 'var(--color-brand-dark)' }} />
       </button>
 
       {/* Right arrow */}
@@ -52,29 +52,29 @@ const AboutTestimonialSection = () => {
                    w-9 h-9 rounded-full border border-[var(--color-border)] bg-white
                    flex items-center justify-center hover:border-[var(--color-gold)] transition-colors"
       >
-        <ChevronRight size={15} strokeWidth={1.5} style={{ color: '#261744' }} />
+        <ChevronRight size={15} strokeWidth={1.5} style={{ color: 'var(--color-brand-dark)' }} />
       </button>
 
       <div className="max-w-3xl mx-auto px-16 py-20 text-center">
         {/* Opening quote decoration */}
         <div className="flex justify-center mb-4">
-          <span className="font-serif text-[60px] leading-none" style={{ color: '#261744', opacity: 0.18 }}>"</span>
+          <span className="font-serif text-[60px] leading-none" style={{ color: 'var(--color-brand-dark)', opacity: 0.18 }}>"</span>
         </div>
 
-        <p className="font-serif font-normal text-[1.25rem] md:text-[1.5rem] leading-[1.7] mb-8" style={{ color: '#261744' }}>
+        <p className="font-serif font-normal text-[1.25rem] md:text-[1.5rem] leading-[1.7] mb-8" style={{ color: 'var(--color-brand-dark)' }}>
           {t.quote}
         </p>
 
         {/* Closing quote */}
         <div className="flex justify-end mb-6">
-          <span className="font-serif text-[60px] leading-none" style={{ color: '#261744', opacity: 0.18 }}>"</span>
+          <span className="font-serif text-[60px] leading-none" style={{ color: 'var(--color-brand-dark)', opacity: 0.18 }}>"</span>
         </div>
 
-        <p className="uppercase tracking-[0.2em] text-[9px] font-bold mb-1" style={{ color: '#261744' }}>{t.name}</p>
-        <p className="uppercase tracking-[0.15em] text-[9px] font-light mb-4" style={{ color: '#A08C8A' }}>{t.location}</p>
+        <p className="uppercase tracking-[0.2em] text-[9px] font-bold mb-1" style={{ color: 'var(--color-brand-dark)' }}>{t.name}</p>
+        <p className="uppercase tracking-[0.15em] text-[9px] font-light mb-4" style={{ color: 'var(--color-text-muted)' }}>{t.location}</p>
         <div className="flex justify-center gap-1">
           {Array.from({ length: t.stars }).map((_, i) => (
-            <span key={i} className="text-[12px]" style={{ color: '#B8954A' }}>★</span>
+            <span key={i} className="text-[12px]" style={{ color: 'var(--color-gold)' }}>★</span>
           ))}
         </div>
       </div>

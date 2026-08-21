@@ -13,7 +13,7 @@ const BlogCard = ({ id, title, excerpt, date, category, image }) => {
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
         />
-        <div className="absolute top-4 left-4 z-10 bg-white px-3 py-1 text-[8px] uppercase tracking-[0.2em] font-bold text-[#261744] shadow-sm">
+        <div className="absolute top-4 left-4 z-10 bg-white px-3 py-1 text-[8px] uppercase tracking-[0.2em] font-bold text-[var(--color-brand-dark)] shadow-sm">
           {category}
         </div>
       </div>
@@ -21,18 +21,18 @@ const BlogCard = ({ id, title, excerpt, date, category, image }) => {
       {/* Content Area */}
       <div className="p-6 md:p-8 flex flex-col flex-1 justify-between">
         <div>
-          <p className="text-[10px] text-[#A08C8A] uppercase tracking-[0.15em] mb-3">
+          <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-[0.15em] mb-3">
             {date}
           </p>
-          <h3 className="font-serif text-[1.25rem] md:text-[1.5rem] leading-tight text-[#261744] mb-4 group-hover:text-[var(--color-gold)] transition-colors">
+          <h3 className="font-serif text-[1.25rem] md:text-[1.5rem] leading-tight text-[var(--color-brand-dark)] mb-4 group-hover:text-[var(--color-gold)] transition-colors">
             {title}
           </h3>
-          <p className="text-[12px] font-light text-[#5A5058] leading-relaxed mb-6 line-clamp-3">
+          <p className="text-[12px] font-light text-[var(--color-text-body)] leading-relaxed mb-6 line-clamp-3">
             {excerpt}
           </p>
         </div>
         
-        <div className="flex items-center text-[10px] uppercase tracking-[0.2em] font-bold text-[#261744] group-hover:text-[var(--color-gold)] transition-colors mt-auto pt-4 border-t border-[#EAE5DF]">
+        <div className="flex items-center text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-brand-dark)] group-hover:text-[var(--color-gold)] transition-colors mt-auto pt-4 border-t border-[var(--color-cream-deep)]">
           Read Article <ArrowRight size={12} className="ml-2" />
         </div>
       </div>

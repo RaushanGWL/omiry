@@ -13,7 +13,7 @@ const ProcessSection = () => (
       <p id="process-heading" className="uppercase tracking-[0.3em]" style={{ color: '#070212ff', fontSize: '18px', fontWeight: '800' }}>The Art of Creation</p>
       <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
         <span className="w-6 h-px bg-[var(--color-border)] block" />
-        <span className="text-[9px]" style={{ color: '#B8954A' }}>✦</span>
+        <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
         <span className="w-6 h-px bg-[var(--color-border)] block" />
       </div>
     </div>

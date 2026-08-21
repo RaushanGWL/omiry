@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark:  #2D1B4E;
-  --color-brand-mid:   #3D2660;
-  --color-brand-light: #F5F3EF;
-  --color-cream-deep:  #EDE7DF;
+  --color-brand-dark:  #36284A;
+  --color-brand-mid:   #493963; /* slightly lighter than primary for hover states */
+  --color-brand-light: #F7F2EA;
+  --color-cream-deep:  #EBE4D8; /* adjusted to match new secondary hue */
   --color-gold:        #B8954A;
   --color-gold-light:  #D4B06A;
-  --color-text-dark:   #1A1218;
+  --color-text-dark:   #000000;
   --color-text-body:   #5A5058;
   --color-text-muted:  #9A8E98;
   --color-border:      #E4DDD6;
   --color-white:       #FFFFFF;
 
-  --font-serif: "Playfair Display", "Georgia", serif;
-  --font-sans:  "Inter", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans:  "Montserrat", system-ui, sans-serif;
 }
 
 @layer base {
@@ -24,6 +24,16 @@
     background-color: var(--color-brand-light);
     color: var(--color-text-body);
     -webkit-font-smoothing: antialiased;
+  }
+  
+  ::selection {
+    background-color: var(--color-brand-dark);
+    color: var(--color-white);
+  }
+  
+  ::-moz-selection {
+    background-color: var(--color-brand-dark);
+    color: var(--color-white);
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-serif);
@@ -37,7 +47,7 @@
     @apply text-[10px] uppercase tracking-[0.3em] text-[var(--color-text-muted)] font-semibold;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-3 bg-[#261744] text-white
+    @apply inline-flex items-center gap-3 bg-[var(--color-brand-dark)] text-white
            text-[10px] uppercase tracking-[0.2em] font-bold px-8 py-4
            hover:bg-[var(--color-brand-mid)] transition-colors duration-300;
   }

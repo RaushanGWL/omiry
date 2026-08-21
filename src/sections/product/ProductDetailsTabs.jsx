@@ -22,7 +22,7 @@ const ProductDetailsTabs = ({ product }) => {
           <li>Ideal for home altars, meditation spaces, and luxury decor</li>
           <li>A meaningful gift for new beginnings and celebrations</li>
         </ul>
-        <p className="italic text-[#A08C8A]">
+        <p className="italic text-[var(--color-text-muted)]">
           Each piece is unique; natural variations in crystal clarity and inclusions are expected and celebrated.
         </p>
       </>
@@ -39,7 +39,7 @@ const ProductDetailsTabs = ({ product }) => {
   };
 
   return (
-    <section className="bg-[#FAF9F6] py-16">
+    <section className="bg-[var(--color-brand-light)] py-16">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           
@@ -52,15 +52,15 @@ const ProductDetailsTabs = ({ product }) => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`text-[10px] uppercase tracking-[0.2em] font-bold pb-4 border-b-2 transition-colors ${
                     activeTab === tab.id
-                      ? 'border-[#261744] text-[#261744]'
-                      : 'border-transparent text-[#A08C8A] hover:text-[#261744]'
+                      ? 'border-[var(--color-brand-dark)] text-[var(--color-brand-dark)]'
+                      : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-brand-dark)]'
                   }`}
                 >
                   {tab.label}
                 </button>
               ))}
             </div>
-            <div className="text-[13px] font-light text-[#5A5058] leading-relaxed max-w-2xl">
+            <div className="text-[13px] font-light text-[var(--color-text-body)] leading-relaxed max-w-2xl">
               {content[activeTab]}
             </div>
           </div>
@@ -70,27 +70,27 @@ const ProductDetailsTabs = ({ product }) => {
             <div className="grid grid-cols-2 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
               
               <div className="bg-[#FDFCFB] flex flex-col items-center text-center p-8">
-                <Leaf size={24} strokeWidth={1} className="text-[#261744] mb-4" />
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#261744] mb-2">NATURAL MATERIALS</h4>
-                <p className="text-[10px] text-[#A08C8A] font-light">Ethically sourced crystals</p>
+                <Leaf size={24} strokeWidth={1} className="text-[var(--color-brand-dark)] mb-4" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-brand-dark)] mb-2">NATURAL MATERIALS</h4>
+                <p className="text-[10px] text-[var(--color-text-muted)] font-light">Ethically sourced crystals</p>
               </div>
 
               <div className="bg-[#FDFCFB] flex flex-col items-center text-center p-8">
-                <Hand size={24} strokeWidth={1} className="text-[#261744] mb-4" />
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#261744] mb-2">HANDCRAFTED EXCELLENCE</h4>
-                <p className="text-[10px] text-[#A08C8A] font-light">Skilled artisans, generations of expertise</p>
+                <Hand size={24} strokeWidth={1} className="text-[var(--color-brand-dark)] mb-4" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-brand-dark)] mb-2">HANDCRAFTED EXCELLENCE</h4>
+                <p className="text-[10px] text-[var(--color-text-muted)] font-light">Skilled artisans, generations of expertise</p>
               </div>
 
               <div className="bg-[#FDFCFB] flex flex-col items-center text-center p-8">
-                <Sparkles size={24} strokeWidth={1} className="text-[#261744] mb-4" />
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#261744] mb-2">ONE-OF-A-KIND UNIQUENESS</h4>
-                <p className="text-[10px] text-[#A08C8A] font-light">No two pieces are identical</p>
+                <Sparkles size={24} strokeWidth={1} className="text-[var(--color-brand-dark)] mb-4" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-brand-dark)] mb-2">ONE-OF-A-KIND UNIQUENESS</h4>
+                <p className="text-[10px] text-[var(--color-text-muted)] font-light">No two pieces are identical</p>
               </div>
 
               <div className="bg-[#FDFCFB] flex flex-col items-center text-center p-8">
-                <Heart size={24} strokeWidth={1} className="text-[#261744] mb-4" />
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#261744] mb-2">MADE WITH DEVOTION</h4>
-                <p className="text-[10px] text-[#A08C8A] font-light">Crafted with care and intention</p>
+                <Heart size={24} strokeWidth={1} className="text-[var(--color-brand-dark)] mb-4" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-brand-dark)] mb-2">MADE WITH DEVOTION</h4>
+                <p className="text-[10px] text-[var(--color-text-muted)] font-light">Crafted with care and intention</p>
               </div>
 
             </div>

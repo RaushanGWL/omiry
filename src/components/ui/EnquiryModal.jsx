@@ -32,15 +32,15 @@ const CountryCodePicker = ({ value, onChange }) => {
         onClick={() => { setOpen(o => !o); setSearch(''); }}
         className="flex items-center gap-1 h-full px-3 border-r border-[var(--color-border)] text-[13px] bg-transparent focus:outline-none whitespace-nowrap"
       >
-        <span className="font-medium text-[#261744]">{selected.code}</span>
-        <ChevronDown size={12} className={`text-[#A08C8A] transition-transform ${open ? 'rotate-180' : ''}`} />
+        <span className="font-medium text-[var(--color-brand-dark)]">{selected.code}</span>
+        <ChevronDown size={12} className={`text-[var(--color-text-muted)] transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {open && (
         <div className="absolute left-0 top-full mt-1 z-[200] bg-white border border-[var(--color-border)] shadow-xl w-64">
           {/* Search */}
           <div className="flex items-center gap-2 px-3 py-2 border-b border-[var(--color-border)]">
-            <Search size={13} className="text-[#A08C8A] shrink-0" />
+            <Search size={13} className="text-[var(--color-text-muted)] shrink-0" />
             <input
               type="text"
               autoFocus
@@ -53,15 +53,15 @@ const CountryCodePicker = ({ value, onChange }) => {
           {/* List */}
           <ul className="max-h-48 overflow-y-auto">
             {filtered.length === 0 && (
-              <li className="px-3 py-2 text-[12px] text-[#A08C8A]">No results</li>
+              <li className="px-3 py-2 text-[12px] text-[var(--color-text-muted)]">No results</li>
             )}
             {filtered.map((c, i) => (
               <li
                 key={i}
                 onClick={() => { onChange(c.code); setOpen(false); setSearch(''); }}
-                className={`flex items-center gap-2 px-3 py-2 text-[12px] cursor-pointer hover:bg-[#FAF9F6] ${c.code === value ? 'bg-[#F0EBF8] font-semibold text-[#261744]' : 'text-[#5A5058]'}`}
+                className={`flex items-center gap-2 px-3 py-2 text-[12px] cursor-pointer hover:bg-[var(--color-brand-light)] ${c.code === value ? 'bg-[#F0EBF8] font-semibold text-[var(--color-brand-dark)]' : 'text-[var(--color-text-body)]'}`}
               >
-                <span className="font-mono text-[#261744] w-12 shrink-0">{c.code}</span>
+                <span className="font-mono text-[var(--color-brand-dark)] w-12 shrink-0">{c.code}</span>
                 <span className="truncate">{c.country}</span>
               </li>
             ))}
@@ -133,20 +133,20 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
       <div className="bg-white max-w-md w-full relative border border-[var(--color-border)] shadow-2xl">
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#5A5058] hover:text-[#261744] transition-colors"
+          className="absolute top-4 right-4 text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
         >
           <X size={20} />
         </button>
         
         <div className="p-8">
-          <h2 className="font-serif text-2xl text-[#261744] mb-2">Enquire Now</h2>
-          <p className="text-[12px] font-light text-[#5A5058] mb-6">
+          <h2 className="font-serif text-2xl text-[var(--color-brand-dark)] mb-2">Enquire Now</h2>
+          <p className="text-[12px] font-light text-[var(--color-text-body)] mb-6">
             Please provide your details to learn more about this exclusive piece.
           </p>
 
-          <div className="bg-[#FAF9F6] p-4 mb-6 border border-[var(--color-border)]">
-            <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#261744] mb-1">{product.name}</h3>
-            <div className="flex gap-4 text-[10px] text-[#A08C8A] uppercase tracking-wider">
+          <div className="bg-[var(--color-brand-light)] p-4 mb-6 border border-[var(--color-border)]">
+            <h3 className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-1">{product.name}</h3>
+            <div className="flex gap-4 text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
               <span>SKU: {product.sku || 'N/A'}</span>
               <span>•</span>
               <span>{collectionName}</span>
@@ -155,7 +155,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[#261744] mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Full Name *
               </label>
               <input 
@@ -164,13 +164,13 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[#261744]"
+                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
                 placeholder="Enter your full name"
               />
             </div>
             
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[#261744] mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Email Address *
               </label>
               <input 
@@ -179,16 +179,16 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[#261744]"
+                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
                 placeholder="Enter your email address"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[#261744] mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Mobile Number *
               </label>
-              <div className="flex border border-[var(--color-border)] bg-white focus-within:border-[#261744]">
+              <div className="flex border border-[var(--color-border)] bg-white focus-within:border-[var(--color-brand-dark)]">
                 <CountryCodePicker
                   value={formData.countryCode}
                   onChange={(code) => setFormData(prev => ({ ...prev, countryCode: code }))}
@@ -208,7 +208,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
             <button 
               type="submit"
               disabled={isSubmitting}
-              className="mt-4 w-full bg-[#261744] text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#3d256e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 w-full bg-[var(--color-brand-dark)] text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#3d256e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
             </button>

@@ -31,20 +31,20 @@ const RelatedProductsSection = ({ onEnquire }) => {
   if (relatedProducts.length === 0) return null;
 
   return (
-    <section className="bg-[#FAF9F6] py-16 border-t border-[var(--color-border)]">
+    <section className="bg-[var(--color-brand-light)] py-16 border-t border-[var(--color-border)]">
       <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
         
-        <h2 className="font-serif text-[1.75rem] text-center mb-12" style={{ color: '#261744' }}>
+        <h2 className="font-serif text-[1.75rem] text-center mb-12" style={{ color: 'var(--color-brand-dark)' }}>
           YOU MAY ALSO LIKE
         </h2>
 
         <div className="relative">
           {/* Carousel Arrows (Visual only for this static layout) */}
-          <button className="hidden xl:flex absolute -left-12 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[#261744] hover:bg-gray-50 transition-colors z-10">
+          <button className="hidden xl:flex absolute -left-12 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-brand-dark)] hover:bg-gray-50 transition-colors z-10">
             <ChevronLeft size={20} strokeWidth={1.5} />
           </button>
           
-          <button className="hidden xl:flex absolute -right-12 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[#261744] hover:bg-gray-50 transition-colors z-10">
+          <button className="hidden xl:flex absolute -right-12 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-brand-dark)] hover:bg-gray-50 transition-colors z-10">
             <ChevronRight size={20} strokeWidth={1.5} />
           </button>
 

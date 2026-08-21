@@ -56,14 +56,14 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[#FAF9F6]">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
 
       {/* Hero Section */}
       <section className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)] px-6">
-        <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[#261744]">
+        <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[var(--color-brand-dark)]">
           The OMRIY Journal
         </h1>
-        <p className="text-[13px] font-light text-[#5A5058] max-w-xl mx-auto leading-relaxed">
+        <p className="text-[13px] font-light text-[var(--color-text-body)] max-w-xl mx-auto leading-relaxed">
           Musings on craftsmanship, interior design, and the spiritual heritage of our gemstone collections.
         </p>
       </section>
@@ -74,12 +74,12 @@ const BlogPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="bg-white border border-[var(--color-border)] overflow-hidden animate-pulse">
-                <div className="aspect-[4/3] bg-[#EAE5DF]" />
+                <div className="aspect-[4/3] bg-[var(--color-cream-deep)]" />
                 <div className="p-6 md:p-8 space-y-3">
-                  <div className="h-3 bg-[#EAE5DF] rounded w-1/4" />
-                  <div className="h-5 bg-[#EAE5DF] rounded w-3/4" />
-                  <div className="h-3 bg-[#EAE5DF] rounded w-full" />
-                  <div className="h-3 bg-[#EAE5DF] rounded w-5/6" />
+                  <div className="h-3 bg-[var(--color-cream-deep)] rounded w-1/4" />
+                  <div className="h-5 bg-[var(--color-cream-deep)] rounded w-3/4" />
+                  <div className="h-3 bg-[var(--color-cream-deep)] rounded w-full" />
+                  <div className="h-3 bg-[var(--color-cream-deep)] rounded w-5/6" />
                 </div>
               </div>
             ))}
@@ -87,11 +87,11 @@ const BlogPage = () => {
         )}
 
         {error && (
-          <p className="text-center text-[#A08C8A] py-12">{error}</p>
+          <p className="text-center text-[var(--color-text-muted)] py-12">{error}</p>
         )}
 
         {!loading && !error && posts.length === 0 && (
-          <p className="text-center text-[#A08C8A] py-12">No articles found.</p>
+          <p className="text-center text-[var(--color-text-muted)] py-12">No articles found.</p>
         )}
 
         {!loading && !error && posts.length > 0 && (

@@ -69,18 +69,18 @@ const ArticlePage = () => {
   // ── Loading skeleton ──────────────────────────────────────────────────────
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#FAF9F6] animate-pulse">
+      <main className="min-h-screen bg-[var(--color-brand-light)] animate-pulse">
         <div className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)] px-6">
-          <div className="h-3 bg-[#EAE5DF] rounded w-24 mx-auto mb-8" />
-          <div className="h-4 bg-[#EAE5DF] rounded w-32 mx-auto mb-4" />
-          <div className="h-10 bg-[#EAE5DF] rounded w-2/3 mx-auto mb-4" />
-          <div className="h-10 bg-[#EAE5DF] rounded w-1/2 mx-auto mb-6" />
-          <div className="h-3 bg-[#EAE5DF] rounded w-48 mx-auto" />
+          <div className="h-3 bg-[var(--color-cream-deep)] rounded w-24 mx-auto mb-8" />
+          <div className="h-4 bg-[var(--color-cream-deep)] rounded w-32 mx-auto mb-4" />
+          <div className="h-10 bg-[var(--color-cream-deep)] rounded w-2/3 mx-auto mb-4" />
+          <div className="h-10 bg-[var(--color-cream-deep)] rounded w-1/2 mx-auto mb-6" />
+          <div className="h-3 bg-[var(--color-cream-deep)] rounded w-48 mx-auto" />
         </div>
         <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="w-full aspect-[21/9] bg-[#EAE5DF] mb-16" />
+          <div className="w-full aspect-[21/9] bg-[var(--color-cream-deep)] mb-16" />
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="h-4 bg-[#EAE5DF] rounded w-full mb-3" />
+            <div key={i} className="h-4 bg-[var(--color-cream-deep)] rounded w-full mb-3" />
           ))}
         </div>
       </main>
@@ -90,12 +90,12 @@ const ArticlePage = () => {
   // ── Not found / error ─────────────────────────────────────────────────────
   if (error) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[#FAF9F6]">
+      <main className="min-h-screen flex items-center justify-center bg-[var(--color-brand-light)]">
         <div className="text-center">
-          <h1 className="font-serif text-2xl text-[#261744] mb-4">
+          <h1 className="font-serif text-2xl text-[var(--color-brand-dark)] mb-4">
             {error === 'not_found' ? 'Article Not Found' : 'Failed to load article'}
           </h1>
-          <Link to="/blog" className="text-[#B8954A] underline uppercase text-[10px] tracking-[0.2em]">
+          <Link to="/blog" className="text-[var(--color-gold)] underline uppercase text-[10px] tracking-[0.2em]">
             Back to Journal
           </Link>
         </div>
@@ -105,7 +105,7 @@ const ArticlePage = () => {
 
   // ── Article ───────────────────────────────────────────────────────────────
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[#FAF9F6]">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
       <article itemScope itemType="http://schema.org/BlogPosting">
         <meta itemProp="datePublished" content={post.date} />
         <meta itemProp="author" content={post.author} />
@@ -113,23 +113,23 @@ const ArticlePage = () => {
         <header className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)] px-6">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-[#A08C8A] hover:text-[#261744] uppercase tracking-[0.15em] text-[10px] mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-brand-dark)] uppercase tracking-[0.15em] text-[10px] mb-8 transition-colors"
           >
             <ArrowLeft size={12} /> Back to Journal
           </Link>
           {post.category && (
-            <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-4" style={{ color: '#B8954A' }}>
+            <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-4" style={{ color: 'var(--color-gold)' }}>
               {post.category}
             </p>
           )}
           <h1
             itemProp="headline"
-            className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[#261744] max-w-4xl mx-auto leading-tight"
+            className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[var(--color-brand-dark)] max-w-4xl mx-auto leading-tight"
           >
             {post.title}
           </h1>
           {(post.author || post.date) && (
-            <p className="text-[10px] text-[#A08C8A] uppercase tracking-[0.15em]">
+            <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-[0.15em]">
               {post.author && `By ${post.author}`}
               {post.author && post.date && ' • '}
               {post.date}
@@ -150,18 +150,18 @@ const ArticlePage = () => {
           {post.content ? (
             <div
               itemProp="articleBody"
-              className="prose prose-lg max-w-2xl mx-auto text-[#5A5058] font-light leading-relaxed
-                [&>h2]:font-serif [&>h2]:text-[2rem] [&>h2]:text-[#261744] [&>h2]:mb-6 [&>h2]:mt-12
-                [&>h3]:font-serif [&>h3]:text-[1.5rem] [&>h3]:text-[#261744] [&>h3]:mb-4 [&>h3]:mt-10
+              className="prose prose-lg max-w-2xl mx-auto text-[var(--color-text-body)] font-light leading-relaxed
+                [&>h2]:font-serif [&>h2]:text-[2rem] [&>h2]:text-[var(--color-brand-dark)] [&>h2]:mb-6 [&>h2]:mt-12
+                [&>h3]:font-serif [&>h3]:text-[1.5rem] [&>h3]:text-[var(--color-brand-dark)] [&>h3]:mb-4 [&>h3]:mt-10
                 [&>p]:mb-6
                 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul>li]:mb-2
-                [&>ul>li>strong]:font-semibold [&>ul>li>strong]:text-[#261744]
-                [&>p>strong]:font-semibold [&>p>strong]:text-[#261744]
+                [&>ul>li>strong]:font-semibold [&>ul>li>strong]:text-[var(--color-brand-dark)]
+                [&>p>strong]:font-semibold [&>p>strong]:text-[var(--color-brand-dark)]
               "
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           ) : (
-            <div itemProp="articleBody" className="text-center text-[#5A5058] italic py-20 max-w-2xl mx-auto">
+            <div itemProp="articleBody" className="text-center text-[var(--color-text-body)] italic py-20 max-w-2xl mx-auto">
               Full article content coming soon.
             </div>
           )}

@@ -53,7 +53,7 @@ const ProductPage = () => {
   if (loading) {
     return (
       <main id="main-content" tabIndex={-1} className="min-h-screen flex items-center justify-center">
-        <p className="text-[#261744]">Loading product details...</p>
+        <p className="text-[var(--color-brand-dark)]">Loading product details...</p>
       </main>
     );
   }
@@ -61,7 +61,7 @@ const ProductPage = () => {
   if (!product) {
     return (
       <main id="main-content" tabIndex={-1} className="min-h-screen flex items-center justify-center">
-        <p className="text-[#261744]">Product not found.</p>
+        <p className="text-[var(--color-brand-dark)]">Product not found.</p>
       </main>
     );
   }

@@ -23,13 +23,13 @@ const FounderMessageSection = () => {
                         border-l border-[var(--color-border)]">
 
           {/* Big decorative quote mark */}
-          <span className="font-serif text-[60px] leading-none mb-1" style={{ color: '#261744', opacity: 0.12 }}>"</span>
+          <span className="font-serif text-[60px] leading-none mb-1" style={{ color: 'var(--color-brand-dark)', opacity: 0.12 }}>"</span>
 
-          <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-5 -mt-4" style={{ color: '#B8954A' }}>
+          <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-5 -mt-4" style={{ color: 'var(--color-gold)' }}>
             A Message From Our Founder
           </p>
 
-          <blockquote className="font-serif font-normal text-[1.15rem] leading-[1.7] mb-6" style={{ color: '#261744' }}>
+          <blockquote className="font-serif font-normal text-[1.15rem] leading-[1.7] mb-6" style={{ color: 'var(--color-brand-dark)' }}>
             At OMRIY, we don't just carve stone — we awaken its soul.
             Each sculpture is a prayer in form, a bridge between the
             natural world and the spiritual.
@@ -40,9 +40,9 @@ const FounderMessageSection = () => {
 
           {/* Signature */}
           <div className="mb-1">
-            <p className="font-serif italic text-[1.05rem]" style={{ color: '#261744' }}>R. K. Mehta</p>
+            <p className="font-serif italic text-[1.05rem]" style={{ color: 'var(--color-brand-dark)' }}>R. K. Mehta</p>
           </div>
-          <p className="uppercase tracking-[0.2em] text-[9px] font-semibold" style={{ color: '#A08C8A' }}>
+          <p className="uppercase tracking-[0.2em] text-[9px] font-semibold" style={{ color: 'var(--color-text-muted)' }}>
             Founder & Head Artisan
           </p>
         </div>

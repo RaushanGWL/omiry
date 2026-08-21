@@ -23,13 +23,13 @@ const CategoryCard = ({ title, subtitle, image, href }) => (
 
     {/* Bottom text */}
     <div className="px-5 pt-4 pb-5 border-t border-[var(--color-border)]">
-      <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: '#261744' }}>
+      <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] mb-1" style={{ color: 'var(--color-brand-dark)' }}>
         {title}
       </h3>
-      <p className="text-[11px] font-light mb-4 leading-relaxed" style={{ color: '#A08C8A' }}>
+      <p className="text-[11px] font-light mb-4 leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
         {subtitle}
       </p>
-      <span className="link-arrow" style={{ color: '#2D1B4E' }}>
+      <span className="link-arrow" style={{ color: 'var(--color-brand-dark)' }}>
         Discover <ArrowRight size={11} strokeWidth={1.5} />
       </span>
     </div>
@@ -74,10 +74,10 @@ const CollectionsSection = () => {
     >
       {/* Section label + diamond pip */}
       <div className="text-center mb-10">
-        <p id="collections-heading" className="uppercase tracking-[0.3em]" style={{ color: '#261744', fontSize: '18px', fontWeight: '800' }}>Featured Collections</p>
+        <p id="collections-heading" className="uppercase tracking-[0.3em]" style={{ color: 'var(--color-brand-dark)', fontSize: '18px', fontWeight: '800' }}>Featured Collections</p>
         <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
           <span className="w-6 h-px bg-[var(--color-border)] block" />
-          <span className="text-[9px]" style={{ color: '#B8954A' }}>✦</span>
+          <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
           <span className="w-6 h-px bg-[var(--color-border)] block" />
         </div>
       </div>
@@ -85,7 +85,7 @@ const CollectionsSection = () => {
       {/* Card grid — no gap, 1px border between */}
       <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
         {loading ? (
-          <div className="text-center py-10 text-[#261744]">Loading...</div>
+          <div className="text-center py-10 text-[var(--color-brand-dark)]">Loading...</div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                           border-l border-t border-[var(--color-border)]">
