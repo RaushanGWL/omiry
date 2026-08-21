@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { CTASection } from '../sections';
+import { CTASection, FAQSection } from '../sections';
 
 const BLOGS_API_URL = 'https://qmfsodjevoooohalsorw.supabase.co/functions/v1/blogs';
 const BLOGS_API_KEY = 'sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L';
@@ -168,6 +168,7 @@ const ArticlePage = () => {
         </div>
       </article>
 
+      <FAQSection />
       <CTASection />
     </main>
   );

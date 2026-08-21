@@ -8,6 +8,7 @@ import {
   CollectionsSection,
   ProcessSection,
   TestimonialSection,
+  FAQSection,
   FeaturesSection,
   CTASection,
   BestProductSection,
@@ -20,6 +21,7 @@ const HomePage = () => (
     <ProcessSection />
     <BestProductSection />
     <TestimonialSection />
+    <FAQSection />
     <FeaturesSection />
     <CTASection />
   </main>
