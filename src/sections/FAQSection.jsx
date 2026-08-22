@@ -6,7 +6,7 @@ import SectionLabel from '../components/ui/SectionLabel';
 
 const FAQSection = ({ blogId, isHome }) => {
   const [openIndex, setOpenIndex] = useState(0);
-  const [faqs, setFaqs] = useState(FAQS);
+  const [faqs, setFaqs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -34,11 +34,11 @@ const FAQSection = ({ blogId, isHome }) => {
           if (data && data.length > 0) {
             setFaqs(data);
           } else {
-            setFaqs(isHome ? FAQS : []);
+            setFaqs([]);
           }
         } catch (error) {
           console.error('Error fetching FAQs:', error);
-          setFaqs(isHome ? FAQS : []);
+          setFaqs([]);
         } finally {
           setLoading(false);
         }
@@ -46,7 +46,7 @@ const FAQSection = ({ blogId, isHome }) => {
 
       fetchFaqs();
     } else {
-      setFaqs(FAQS);
+      setFaqs([]);
     }
   }, [blogId, isHome]);
 
