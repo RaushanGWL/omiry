@@ -21,7 +21,7 @@ const HomePage = () => (
     <ProcessSection />
     <BestProductSection />
     <TestimonialSection />
-    <FAQSection />
+    <FAQSection isHome={true} />
     <FeaturesSection />
     <CTASection />
   </main>

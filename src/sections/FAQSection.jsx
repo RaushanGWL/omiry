@@ -1,48 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import SectionLabel from '../components/ui/SectionLabel';
 
-const FAQS = [
-  {
-    question: "What is OMRIY's signature style?",
-    answer: "OMRIY blends ancient craftsmanship with modern design principles. Each piece is hand-carved to reveal the unique energy of natural gemstones, resulting in heirloom-quality sculptures."
-  },
-  {
-    question: "How do I care for my gemstone sculpture?",
-    answer: "Keep your sculpture away from direct, harsh sunlight and extreme temperature changes. Clean it gently with a soft, dry cloth. Avoid chemical cleaners or water."
-  },
-  {
-    question: "Are the gemstones ethically sourced?",
-    answer: "Yes, we work directly with ethical mining communities globally to ensure that our materials are sourced responsibly, honoring both the earth and the artisans."
-  },
-  {
-    question: "Do you offer custom commissions?",
-    answer: "We accept a limited number of bespoke commissions each year. Please contact our concierge team to discuss your vision."
-  },
-  {
-    question: "How long does shipping take?",
-    answer: "Our ready-to-ship pieces are dispatched within 2-3 business days and typically arrive within 5-7 business days for domestic orders. International shipping may take 2-4 weeks depending on the destination."
-  },
-  {
-    question: "What is your return policy?",
-    answer: "We offer a 14-day return window for all our pieces, provided they are returned in their original condition and packaging. Custom commissions and bespoke pieces are non-refundable."
-  },
-  {
-    question: "Do the sculptures come with authenticity certificates?",
-    answer: "Yes, every OMRIY sculpture is accompanied by a signed Certificate of Authenticity detailing the gemstone type, origin, and the artisan who carved it."
-  },
-  {
-    question: "Do you ship internationally?",
-    answer: "Absolutely. We ship our pieces worldwide. Please note that international orders may be subject to local customs duties and taxes, which are the responsibility of the recipient."
-  }
-];
 
-const FAQSection = () => {
+
+const FAQSection = ({ blogId, isHome }) => {
   const [openIndex, setOpenIndex] = useState(0);
+  const [faqs, setFaqs] = useState(FAQS);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let url = '';
+    if (blogId) {
+      url = `https://qmfsodjevoooohalsorw.supabase.co/rest/v1/faqs?type=eq.blog&blog_id=eq.${blogId}&is_active=eq.true&order=sort_order.asc`;
+    } else if (isHome) {
+      url = `https://qmfsodjevoooohalsorw.supabase.co/rest/v1/faqs?type=eq.home&is_active=eq.true&order=sort_order.asc`;
+    }
+
+    if (url) {
+      const fetchFaqs = async () => {
+        setLoading(true);
+        try {
+          const res = await fetch(url, {
+            headers: {
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFtZnNvZGpldm9vb29oYWxzb3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyOTA4NzIsImV4cCI6MjEwMTg2Njg3Mn0.ZT32g9WVbevgQIVgISoiRGtz3IxXsCVtQ-qSpqavyK8',
+              'Content-Type': 'application/json'
+            }
+          });
+
+          if (!res.ok) throw new Error('Failed to fetch FAQs');
+          const data = await res.json();
+
+          if (data && data.length > 0) {
+            setFaqs(data);
+          } else {
+            setFaqs(isHome ? FAQS : []);
+          }
+        } catch (error) {
+          console.error('Error fetching FAQs:', error);
+          setFaqs(isHome ? FAQS : []);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchFaqs();
+    } else {
+      setFaqs(FAQS);
+    }
+  }, [blogId, isHome]);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
+
+  if (loading) {
+    return (
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-white border-t border-[var(--color-border)]">
+        <div className="max-w-[800px] mx-auto text-center">
+          <p className="text-[var(--color-text-muted)] animate-pulse">Loading FAQs...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (faqs.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-20 px-6 md:px-12 lg:px-24 bg-white border-t border-[var(--color-border)]">
@@ -55,11 +79,11 @@ const FAQSection = () => {
         </div>
 
         <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-          {FAQS.map((faq, index) => {
+          {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="border border-[var(--color-border)] p-5 md:p-6 cursor-pointer transition-colors hover:bg-[var(--color-brand-light)]"
                 onClick={() => toggleFaq(index)}
               >
@@ -73,14 +97,11 @@ const FAQSection = () => {
                     <ChevronDown className="text-[var(--color-brand-dark)] flex-shrink-0" size={20} strokeWidth={1.5} />
                   )}
                 </div>
-                <div 
-                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
-                  }`}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
+                    }`}
                 >
-                  <p className="min-h-0 text-[var(--color-text-body)] leading-relaxed font-light text-[0.95rem]">
-                    {faq.answer}
-                  </p>
+                  <p className="min-h-0 text-[var(--color-text-body)] leading-relaxed font-light text-[0.95rem]" dangerouslySetInnerHTML={{ __html: faq.answer }} />
                 </div>
               </div>
             );
@@ -92,3 +113,4 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
+

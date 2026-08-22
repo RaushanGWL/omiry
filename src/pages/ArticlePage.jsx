@@ -40,6 +40,7 @@ const ArticlePage = () => {
           // Normalise fields
           setPost({
             id: found.slug || found.id,
+            blogId: found.id,
             title: found.title,
             excerpt: found.excerpt || '',
             date: found.published_at
@@ -168,7 +169,7 @@ const ArticlePage = () => {
         </div>
       </article>
 
-      <FAQSection />
+      <FAQSection blogId={post.blogId} />
       <CTASection />
     </main>
   );
