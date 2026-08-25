@@ -96,6 +96,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
         method: 'POST',
         headers: {
           'apikey': 'sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
+          'Authorization': 'Bearer sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

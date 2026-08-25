@@ -8,7 +8,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     email: '',
     countryCode: '+1',
     mobile: '',
-    subject: 'General Inquiry',
+    subject: 'general_enquiry',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,23 +24,19 @@ const ContactModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://qmfsodjevoooohalsorw.supabase.co/functions/v1/enquiries', {
+      const response = await fetch('https://qmfsodjevoooohalsorw.supabase.co/functions/v1/contact-info', {
         method: 'POST',
         headers: {
           'apikey': 'sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
+          'Authorization': 'Bearer sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          customer_id: null,
-          product_id: null,
-          name: formData.name,
+          full_name: formData.name,
           email: formData.email,
-          phone: `${formData.countryCode}${formData.mobile}`,
-          city: "",
-          state: "",
-          country: "",
-          preferred_contact_method: "email",
-          message: `[${formData.subject}] ${formData.message}`
+          mobile_number: `${formData.countryCode}${formData.mobile}`,
+          subject: formData.subject,
+          message: formData.message
         })
       });
 
@@ -61,13 +57,13 @@ const ContactModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
       <div className="bg-[#f9f8f6] max-w-2xl w-full relative border border-[var(--color-border)] shadow-2xl">
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-4 right-4 text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
         >
           <X size={20} />
         </button>
-        
+
         <div className="p-10 md:p-14">
           <h2 className="font-serif text-[2.5rem] text-[var(--color-brand-dark)] mb-10 leading-tight">Send a Message</h2>
 
@@ -77,8 +73,8 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                   Full Name
                 </label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
                   required
                   value={formData.name}
@@ -86,13 +82,13 @@ const ContactModal = ({ isOpen, onClose }) => {
                   className="w-full border border-[var(--color-border)] p-3 text-base bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
                 />
               </div>
-              
+
               <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                   Email Address
                 </label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   required
                   value={formData.email}
@@ -111,8 +107,8 @@ const ContactModal = ({ isOpen, onClose }) => {
                   value={formData.countryCode}
                   onChange={(code) => setFormData(prev => ({ ...prev, countryCode: code }))}
                 />
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="mobile"
                   required
                   value={formData.mobile}
@@ -133,9 +129,9 @@ const ContactModal = ({ isOpen, onClose }) => {
                   onChange={handleChange}
                   className="w-full p-3 text-base bg-transparent focus:outline-none appearance-none"
                 >
-                  <option value="General Inquiry">General Inquiry</option>
-                  <option value="Bespoke Order">Bespoke Order</option>
-                  <option value="Product Support">Product Support</option>
+                  <option value="general_enquiry">General Inquiry</option>
+                  <option value="add_product">Add Product</option>
+                  <option value="other">Other</option>
                 </select>
                 <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)] pointer-events-none" />
               </div>
@@ -145,7 +141,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Message
               </label>
-              <textarea 
+              <textarea
                 name="message"
                 required
                 value={formData.message}
@@ -154,7 +150,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               ></textarea>
             </div>
 
-            <button 
+            <button
               type="submit"
               disabled={isSubmitting}
               className="mt-4 w-full bg-[#3d256e] text-white py-5 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[var(--color-brand-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
