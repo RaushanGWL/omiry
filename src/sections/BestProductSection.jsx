@@ -43,13 +43,13 @@ const BestProductSection = () => {
         <p id="best-product-heading" className="uppercase tracking-[0.3em]" style={{ color: 'var(--color-brand-dark)', fontSize: '18px', fontWeight: '800' }}>Our Best Product</p>
         <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
           <span className="w-6 h-px bg-[var(--color-border)] block" />
-          <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
+          <span className="text-xs" style={{ color: 'var(--color-gold)' }}>✦</span>
           <span className="w-6 h-px bg-[var(--color-border)] block" />
         </div>
       </div>
 
       {/* Card grid — no gap, 1px border between */}
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
         {loading ? (
           <div className="text-center py-10 text-[var(--color-brand-dark)]">Loading best sellers...</div>
         ) : (
@@ -67,7 +67,7 @@ const BestProductSection = () => {
             <div className="mt-12 flex justify-center">
               <Link 
                 to="/collections?best_seller=true" 
-                className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] border border-[var(--color-brand-dark)] text-[var(--color-brand-dark)] py-3 px-8 hover:bg-[var(--color-brand-dark)] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.15em] border border-[var(--color-brand-dark)] text-[var(--color-brand-dark)] py-3 px-8 hover:bg-[var(--color-brand-dark)] hover:text-white transition-colors"
               >
                 View All Bestsellers
               </Link>

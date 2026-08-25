@@ -96,7 +96,7 @@ const ArticlePage = () => {
           <h1 className="font-serif text-2xl text-[var(--color-brand-dark)] mb-4">
             {error === 'not_found' ? 'Article Not Found' : 'Failed to load article'}
           </h1>
-          <Link to="/blog" className="text-[var(--color-gold)] underline uppercase text-[10px] tracking-[0.2em]">
+          <Link to="/blog" className="text-[var(--color-gold)] underline uppercase text-xs tracking-[0.2em]">
             Back to Journal
           </Link>
         </div>
@@ -114,12 +114,12 @@ const ArticlePage = () => {
         <header className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)] px-6">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-brand-dark)] uppercase tracking-[0.15em] text-[10px] mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-brand-dark)] uppercase tracking-[0.15em] text-xs mb-8 transition-colors"
           >
             <ArrowLeft size={12} /> Back to Journal
           </Link>
           {post.category && (
-            <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-4" style={{ color: 'var(--color-gold)' }}>
+            <p className="uppercase tracking-[0.25em] text-xs font-semibold mb-4" style={{ color: 'var(--color-gold)' }}>
               {post.category}
             </p>
           )}
@@ -130,7 +130,7 @@ const ArticlePage = () => {
             {post.title}
           </h1>
           {(post.author || post.date) && (
-            <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-[0.15em]">
+            <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-[0.15em]">
               {post.author && `By ${post.author}`}
               {post.author && post.date && ' • '}
               {post.date}

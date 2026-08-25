@@ -33,7 +33,7 @@ const TESTIMONIALS = [
 const Stars = ({ n }) => (
   <div className="flex gap-[3px] mt-3" aria-label={`${n} out of 5 stars`}>
     {Array.from({ length: 5 }).map((_, i) => (
-      <span key={i} className={`text-[15px] leading-none ${i < n ? 'text-[var(--color-gold)]' : 'text-gray-200'}`}>
+      <span key={i} className={`text-base leading-none ${i < n ? 'text-[var(--color-gold)]' : 'text-gray-200'}`}>
         ★
       </span>
     ))}
@@ -96,10 +96,10 @@ const TestimonialSection = () => {
               {t.quote}
             </p>
             <footer>
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--color-brand-dark)]">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-brand-dark)]">
                 {t.name}
               </p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-muted)] mt-0.5 font-light">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] mt-0.5 font-light">
                 {t.location}
               </p>
               <Stars n={t.rating} />

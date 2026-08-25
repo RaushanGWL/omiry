@@ -70,11 +70,11 @@ const AboutTestimonialSection = () => {
           <span className="font-serif text-[60px] leading-none" style={{ color: 'var(--color-brand-dark)', opacity: 0.18 }}>"</span>
         </div>
 
-        <p className="uppercase tracking-[0.2em] text-[9px] font-bold mb-1" style={{ color: 'var(--color-brand-dark)' }}>{t.name}</p>
-        <p className="uppercase tracking-[0.15em] text-[9px] font-light mb-4" style={{ color: 'var(--color-text-muted)' }}>{t.location}</p>
+        <p className="uppercase tracking-[0.2em] text-xs font-bold mb-1" style={{ color: 'var(--color-brand-dark)' }}>{t.name}</p>
+        <p className="uppercase tracking-[0.15em] text-xs font-light mb-4" style={{ color: 'var(--color-text-muted)' }}>{t.location}</p>
         <div className="flex justify-center gap-1">
           {Array.from({ length: t.stars }).map((_, i) => (
-            <span key={i} className="text-[12px]" style={{ color: 'var(--color-gold)' }}>★</span>
+            <span key={i} className="text-sm" style={{ color: 'var(--color-gold)' }}>★</span>
           ))}
         </div>
       </div>

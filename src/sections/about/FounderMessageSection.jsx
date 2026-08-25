@@ -25,7 +25,7 @@ const FounderMessageSection = () => {
           {/* Big decorative quote mark */}
           <span className="font-serif text-[60px] leading-none mb-1" style={{ color: 'var(--color-brand-dark)', opacity: 0.12 }}>"</span>
 
-          <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-5 -mt-4" style={{ color: 'var(--color-gold)' }}>
+          <p className="uppercase tracking-[0.25em] text-xs font-semibold mb-5 -mt-4" style={{ color: 'var(--color-gold)' }}>
             A Message From Our Founder
           </p>
 
@@ -42,7 +42,7 @@ const FounderMessageSection = () => {
           <div className="mb-1">
             <p className="font-serif italic text-[1.05rem]" style={{ color: 'var(--color-brand-dark)' }}>R. K. Mehta</p>
           </div>
-          <p className="uppercase tracking-[0.2em] text-[9px] font-semibold" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="uppercase tracking-[0.2em] text-xs font-semibold" style={{ color: 'var(--color-text-muted)' }}>
             Founder & Head Artisan
           </p>
         </div>

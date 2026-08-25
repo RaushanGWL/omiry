@@ -53,7 +53,7 @@ const FeaturesSection = () => (
     className="bg-white border-t border-b border-[var(--color-border)]"
     aria-label="Key features"
   >
-    <div className="max-w-screen-xl mx-auto
+    <div className="max-w-[1440px] mx-auto
                     grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
                     divide-y sm:divide-y-0 lg:divide-x divide-[var(--color-border)]">
       {FEATURES.map(({ Icon, title, desc }) => (
@@ -65,7 +65,7 @@ const FeaturesSection = () => (
                          text-[var(--color-text-dark)] mb-2.5">
             {title}
           </h4>
-          <p className="text-[11px] text-[var(--color-text-muted)] font-light leading-relaxed max-w-[160px]">
+          <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed max-w-[160px]">
             {desc}
           </p>
         </div>

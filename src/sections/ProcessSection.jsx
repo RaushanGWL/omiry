@@ -13,12 +13,12 @@ const ProcessSection = () => (
       <p id="process-heading" className="uppercase tracking-[0.3em]" style={{ color: '#070212ff', fontSize: '18px', fontWeight: '800' }}>The Art of Creation</p>
       <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
         <span className="w-6 h-px bg-[var(--color-border)] block" />
-        <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
+        <span className="text-xs" style={{ color: 'var(--color-gold)' }}>✦</span>
         <span className="w-6 h-px bg-[var(--color-border)] block" />
       </div>
     </div>
 
-    <div className="max-w-screen-lg mx-auto px-6 lg:px-10">
+    <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
       {/* Outer wrapper — relative so we can draw the connector line */}
       <div className="relative">
 
@@ -57,18 +57,18 @@ const ProcessSection = () => (
               </div>
 
               {/* Number */}
-              <p className="text-[9px] font-bold tracking-[0.25em] text-[var(--color-gold)] mb-1.5">
+              <p className="text-xs font-bold tracking-[0.25em] text-[var(--color-gold)] mb-1.5">
                 {number}
               </p>
 
               {/* Title */}
-              <h3 className="text-[10px] font-bold uppercase tracking-[0.18em]
+              <h3 className="text-sm font-bold uppercase tracking-[0.18em]
                              text-[var(--color-text-dark)] mb-2 leading-snug">
                 {title}
               </h3>
 
               {/* Description */}
-              <p className="text-[10.5px] text-[var(--color-text-muted)] font-light leading-relaxed max-w-[115px]">
+              <p className="text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
                 {description}
               </p>
             </div>

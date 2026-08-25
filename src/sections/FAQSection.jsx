@@ -101,7 +101,7 @@ const FAQSection = ({ blogId, isHome }) => {
                   className={`grid transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'
                     }`}
                 >
-                  <p className="min-h-0 text-[var(--color-text-body)] leading-relaxed font-light text-[0.95rem]" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+                  <p className="min-h-0 text-[var(--color-text-body)] leading-relaxed font-light text-base md:text-[1.05rem]" dangerouslySetInnerHTML={{ __html: faq.answer }} />
                 </div>
               </div>
             );

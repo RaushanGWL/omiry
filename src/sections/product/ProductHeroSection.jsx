@@ -37,10 +37,10 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
 
   return (
     <section className="bg-[var(--color-brand-light)] pt-8 pb-16">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         
         {/* Breadcrumbs */}
-        <nav className="flex items-center text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-8 font-medium">
+        <nav className="flex items-center text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-8 font-medium">
           <Link to="/" className="hover:text-[var(--color-brand-dark)] transition-colors">Home</Link>
           <ChevronRight size={12} className="mx-2" />
           <Link to="/collections" className="hover:text-[var(--color-brand-dark)] transition-colors">Collections</Link>
@@ -93,7 +93,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
             <h1 className="font-serif text-[2.2rem] leading-tight mb-2 text-[var(--color-brand-dark)]">
               {displayProduct.name}
             </h1>
-            <p className="text-[12px] font-light text-[var(--color-text-body)] uppercase tracking-[0.1em] mb-4">
+            <p className="text-sm font-light text-[var(--color-text-body)] uppercase tracking-[0.1em] mb-4">
               {displayProduct.subtitle}
             </p>
 
@@ -103,7 +103,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
                   <span key={i} className="text-sm">★</span>
                 ))}
               </div>
-              <span className="text-[11px] text-[var(--color-text-muted)]">({displayProduct.reviews} reviews)</span>
+              <span className="text-xs text-[var(--color-text-muted)]">({displayProduct.reviews} reviews)</span>
             </div>
 
             {/* Divider */}
@@ -113,14 +113,14 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
               <div className="h-px bg-[var(--color-brand-dark)] flex-1"></div>
             </div>
 
-            <p className="text-[13px] font-light text-[var(--color-text-body)] leading-[1.8] mb-8">
+            <p className="text-sm font-light text-[var(--color-text-body)] leading-[1.8] mb-8">
               {displayProduct.description}
             </p>
 
             {/* Details Grid */}
             <div className="flex flex-col gap-4 mb-8">
               {displayProduct.details.map((detail, idx) => (
-                <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 text-[11px]">
+                <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 text-xs">
                   <span className="uppercase tracking-[0.15em] font-semibold text-[var(--color-brand-dark)] sm:w-28 shrink-0">
                     {detail.label}
                   </span>
@@ -135,7 +135,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
             <div className="flex flex-col gap-3 mb-10">
               <button 
                 onClick={() => onEnquire(apiProduct)} 
-                className="w-full uppercase tracking-[0.2em] font-bold text-[11px] h-14 bg-[var(--color-brand-dark)] text-white hover:bg-[#3d256e] transition-colors"
+                className="w-full uppercase tracking-[0.2em] font-bold text-xs h-14 bg-[var(--color-brand-dark)] text-white hover:bg-[#3d256e] transition-colors"
               >
                 ENQUIRE NOW
               </button>
@@ -145,18 +145,18 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
             <div className="grid grid-cols-3 gap-4 border-t border-[var(--color-border)] pt-8">
               <div className="flex flex-col items-center text-center">
                 <Plane size={22} className="text-[var(--color-brand-dark)] mb-3" strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">WORLDWIDE SHIPPING</span>
-                <span className="text-[9px] text-[var(--color-text-muted)]">Express delivery to your doorstep</span>
+                <span className="text-xs uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">WORLDWIDE SHIPPING</span>
+                <span className="text-xs text-[var(--color-text-muted)]">Express delivery to your doorstep</span>
               </div>
               <div className="flex flex-col items-center text-center">
                 <ShieldCheck size={22} className="text-[var(--color-brand-dark)] mb-3" strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">SECURE CHECKOUT</span>
-                <span className="text-[9px] text-[var(--color-text-muted)]">Encrypted & trusted transactions</span>
+                <span className="text-xs uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">SECURE CHECKOUT</span>
+                <span className="text-xs text-[var(--color-text-muted)]">Encrypted & trusted transactions</span>
               </div>
               <div className="flex flex-col items-center text-center">
                 <Award size={22} className="text-[var(--color-brand-dark)] mb-3" strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">CERTIFICATE OF AUTHENTICITY</span>
-                <span className="text-[9px] text-[var(--color-text-muted)]">Includes certified documentation</span>
+                <span className="text-xs uppercase tracking-[0.1em] font-bold text-[var(--color-brand-dark)] mb-1">CERTIFICATE OF AUTHENTICITY</span>
+                <span className="text-xs text-[var(--color-text-muted)]">Includes certified documentation</span>
               </div>
             </div>
 

@@ -32,7 +32,7 @@ const RelatedProductsSection = ({ onEnquire }) => {
 
   return (
     <section className="bg-[var(--color-brand-light)] py-16 border-t border-[var(--color-border)]">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         
         <h2 className="font-serif text-[1.75rem] text-center mb-12" style={{ color: 'var(--color-brand-dark)' }}>
           YOU MAY ALSO LIKE

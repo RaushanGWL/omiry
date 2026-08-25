@@ -8,7 +8,7 @@ const Badge = ({ children, className = '' }) => {
     <span
       className={`
         bg-[var(--color-primary-dark)] text-white
-        text-[8px] uppercase tracking-wider
+        text-xs uppercase tracking-wider
         px-2 py-1 font-bold
         ${className}
       `}

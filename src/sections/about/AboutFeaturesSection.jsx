@@ -56,7 +56,7 @@ const FEATURES = [
 const AboutFeaturesSection = () => {
   return (
     <section className="border-b border-[var(--color-border)] py-16" aria-label="Brand promises" style={{ background: 'var(--color-brand-light)' }}>
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[var(--color-border)] border border-[var(--color-border)] bg-white">
           {FEATURES.map(({ icon, title, desc }) => (
             <div key={title} className="flex flex-col items-center text-center px-6 py-10">
@@ -67,7 +67,7 @@ const AboutFeaturesSection = () => {
                 {React.cloneElement(icon, { className: 'w-7 h-7', strokeWidth: '1.2' })}
               </div>
               <h3 className="text-[9.5px] font-bold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--color-brand-dark)' }}>{title}</h3>
-              <p className="text-[10px] font-light leading-[1.8] max-w-[170px]" style={{ color: 'var(--color-text-body)' }}>{desc}</p>
+              <p className="text-xs font-light leading-[1.8] max-w-[170px]" style={{ color: 'var(--color-text-body)' }}>{desc}</p>
             </div>
           ))}
         </div>

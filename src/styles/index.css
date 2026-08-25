@@ -18,12 +18,15 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html { 
+    scroll-behavior: smooth; 
+  }
   body {
     font-family: var(--font-sans);
     background-color: var(--color-brand-light);
     color: var(--color-text-body);
     -webkit-font-smoothing: antialiased;
+    font-weight: 500;
   }
   
   ::selection {
@@ -38,21 +41,21 @@
   h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-serif);
     color: var(--color-text-dark);
-    font-weight: 400;
+    font-weight: 600;
   }
 }
 
 @layer utilities {
   .section-label {
-    @apply text-[10px] uppercase tracking-[0.3em] text-[var(--color-text-muted)] font-semibold;
+    @apply text-xs uppercase tracking-[0.3em] text-[var(--color-text-muted)] font-semibold;
   }
   .btn-primary {
     @apply inline-flex items-center gap-3 bg-[var(--color-brand-dark)] text-white
-           text-[10px] uppercase tracking-[0.2em] font-bold px-8 py-4
+           text-xs uppercase tracking-[0.2em] font-bold px-8 py-4
            hover:bg-[var(--color-brand-mid)] transition-colors duration-300;
   }
   .link-arrow {
-    @apply inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em]
+    @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]
            font-semibold text-[var(--color-brand-dark)]
            hover:gap-3 transition-all duration-200;
   }

@@ -42,7 +42,7 @@ const FooterCol = ({ title, links }) => (
     <ul className="space-y-3">
       {links.map(l => (
         <li key={l}>
-          <a href="#" className="text-[11px] text-gray-500 hover:text-white transition-colors font-light">{l}</a>
+          <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors font-light">{l}</a>
         </li>
       ))}
     </ul>
@@ -51,7 +51,7 @@ const FooterCol = ({ title, links }) => (
 
 const Footer = () => (
   <footer className="bg-[#170D28] text-white">
-    <div className="max-w-screen-xl mx-auto px-6 lg:px-16 pt-14 pb-7">
+    <div className="max-w-[1440px] mx-auto px-6 lg:px-16 pt-14 pb-7">
 
       {/* Main grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 mb-12">
@@ -59,7 +59,7 @@ const Footer = () => (
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
           <div className="font-serif text-[22px] tracking-[0.28em] mb-4">OMRIY</div>
-          <p className="text-[11px] text-gray-500 font-light leading-relaxed mb-6">
+          <p className="text-xs text-gray-500 font-light leading-relaxed mb-6">
             Timeless gemstone sculptures,<br/>
             handcrafted with devotion<br/>
             and designed to inspire.
@@ -88,7 +88,7 @@ const Footer = () => (
         {/* Contact */}
         <div>
           <h4 className="text-[9.5px] font-bold uppercase tracking-[0.25em] text-white/80 mb-5">Contact</h4>
-          <address className="not-italic space-y-2.5 text-[11px] text-gray-500 font-light mb-6">
+          <address className="not-italic space-y-2.5 text-xs text-gray-500 font-light mb-6">
             <p>hello@omriy.com</p>
             <p>+91 22345-67890</p>
             <p>New York, NY, USA</p>

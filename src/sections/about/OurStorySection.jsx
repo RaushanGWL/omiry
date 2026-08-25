@@ -26,7 +26,7 @@ const OurStorySection = () => {
                         border-l border-[var(--color-border)] bg-white">
 
           {/* Gold label */}
-          <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-5" style={{ color: 'var(--color-gold)' }}>
+          <p className="uppercase tracking-[0.25em] text-xs font-semibold mb-5" style={{ color: 'var(--color-gold)' }}>
             Our Story
           </p>
 
@@ -42,11 +42,11 @@ const OurStorySection = () => {
           {/* Simple thin horizontal divider */}
           <div className="flex items-center gap-3 mb-8" aria-hidden="true">
             <span className="w-16 h-px block" style={{ background: '#C4B8B0' }} />
-            <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
+            <span className="text-xs" style={{ color: 'var(--color-gold)' }}>✦</span>
           </div>
 
           {/* Body copy */}
-          <div className="space-y-4 text-[13px] font-light leading-[1.85]" style={{ color: 'var(--color-text-body)' }}>
+          <div className="space-y-4 text-sm font-light leading-[1.85]" style={{ color: 'var(--color-text-body)' }}>
             <p>
               Born from a deep reverence for nature and spiritual heritage, OMRIY is dedicated
               to transforming rare, natural gemstones into meaningful works of art.

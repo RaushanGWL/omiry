@@ -9,13 +9,13 @@ const items = [
 
 const TopBanner = () => (
   <div className="bg-[var(--color-brand-dark)] text-white/80 py-2.5 px-6" role="banner">
-    <ul className="flex items-center justify-center md:justify-between max-w-screen-xl mx-auto gap-y-0 gap-x-8">
+    <ul className="flex items-center justify-center md:justify-between max-w-[1440px] mx-auto gap-y-0 gap-x-8">
       {items.map(({ icon, text }, i) => (
         <li
           key={i}
-          className={`flex items-center gap-2 text-[10px] tracking-[0.18em] font-light ${i > 0 ? 'hidden md:flex' : 'flex'}`}
+          className={`flex items-center gap-2 text-xs tracking-[0.18em] font-light ${i > 0 ? 'hidden md:flex' : 'flex'}`}
         >
-          <span className="text-[var(--color-gold-light)] text-[11px]">{icon}</span>
+          <span className="text-[var(--color-gold-light)] text-xs">{icon}</span>
           {text}
         </li>
       ))}

@@ -19,7 +19,7 @@ const NavLink = ({ label, href, chevron }) => (
   href.startsWith('/') ? (
     <Link
       to={href}
-      className="flex items-center gap-1 text-[10.5px] uppercase tracking-[0.18em] text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors duration-200 font-medium"
+      className="flex items-center gap-1 text-xs uppercase tracking-[0.18em] text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors duration-200 font-bold"
     >
       {label}
       {chevron && (
@@ -31,7 +31,7 @@ const NavLink = ({ label, href, chevron }) => (
   ) : (
     <a
       href={href}
-      className="flex items-center gap-1 text-[10.5px] uppercase tracking-[0.18em] text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors duration-200 font-medium"
+      className="flex items-center gap-1 text-xs uppercase tracking-[0.18em] text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors duration-200 font-bold"
     >
       {label}
       {chevron && (
@@ -53,7 +53,7 @@ const Navbar = () => {
         ${scrolled ? 'shadow-sm' : 'border-b border-[var(--color-border)]'}`}
     >
       <nav
-        className="max-w-screen-xl mx-auto px-6 lg:px-10 h-[58px] flex items-center"
+        className="max-w-[1440px] mx-auto px-6 lg:px-10 h-[58px] flex items-center"
         aria-label="Main navigation"
       >
         {/* LEFT */}
@@ -66,7 +66,7 @@ const Navbar = () => {
           <a
             href="/"
             aria-label="OMRIY Home"
-            className="font-serif text-[26px] tracking-[0.32em] text-[var(--color-brand-dark)] font-normal hover:text-[var(--color-brand-mid)] transition-colors"
+            className="font-serif text-[26px] tracking-[0.32em] text-[var(--color-brand-dark)] font-semibold hover:text-[var(--color-brand-mid)] transition-colors"
           >
             OMRIY
           </a>
@@ -97,7 +97,7 @@ const Navbar = () => {
           >
             <ShoppingBag size={17} strokeWidth={1.5} />
             <span className="absolute -top-1.5 -right-1.5 bg-[var(--color-brand-dark)] text-white
-              text-[8px] w-[14px] h-[14px] rounded-full flex items-center justify-center font-bold leading-none">
+              text-xs w-[14px] h-[14px] rounded-full flex items-center justify-center font-bold leading-none">
               0
             </span>
           </button>
@@ -107,7 +107,7 @@ const Navbar = () => {
         <div className="flex md:hidden items-center gap-4 ml-auto text-[var(--color-text-body)]">
           <button aria-label="Cart" className="relative hover:text-[var(--color-brand-dark)] transition-colors">
             <ShoppingBag size={17} strokeWidth={1.5} />
-            <span className="absolute -top-1 -right-1 bg-[var(--color-brand-dark)] text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</span>
+            <span className="absolute -top-1 -right-1 bg-[var(--color-brand-dark)] text-white text-xs w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</span>
           </button>
           <button aria-label="Toggle menu" aria-expanded={open}
             onClick={() => setOpen(o => !o)}
@@ -121,7 +121,7 @@ const Navbar = () => {
       {/* MOBILE DRAWER */}
       {open && (
         <div className="md:hidden bg-[var(--color-brand-light)] border-t border-[var(--color-border)]">
-          <div className="px-6 py-5 flex flex-col gap-4 text-[10.5px] uppercase tracking-[0.18em] font-medium text-[var(--color-text-body)]">
+          <div className="px-6 py-5 flex flex-col gap-4 text-xs uppercase tracking-[0.18em] font-bold text-[var(--color-text-body)]">
           {[...LEFT, ...RIGHT].map(l => (
               l.href.startsWith('/') ? (
                 <Link key={l.label} to={l.href}

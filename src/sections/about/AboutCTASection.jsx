@@ -26,14 +26,14 @@ const AboutCTASection = () => {
         <path d="M80 80 Q95 60 105 40" stroke="white" strokeWidth="1"/>
       </svg>
 
-      <div className="max-w-screen-xl mx-auto px-8 lg:px-24 flex flex-col lg:flex-row items-center gap-12 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-24 flex flex-col lg:flex-row items-center gap-12 relative z-10">
         {/* Left text */}
         <div className="lg:w-1/2">
           <h2 className="font-serif font-normal text-white text-[1.9rem] leading-[1.25] mb-4">
             Timeless Creations.<br />
             Meaningful Connections.
           </h2>
-          <p className="text-white/60 text-[12px] font-light leading-relaxed">
+          <p className="text-white/60 text-sm font-light leading-relaxed">
             Be the first to discover new collections, stories, and exclusive offers.
           </p>
         </div>
@@ -44,17 +44,17 @@ const AboutCTASection = () => {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 bg-white text-[12px] px-5 py-4 outline-none text-[var(--color-brand-dark)] placeholder-[var(--color-text-muted)]"
+              className="flex-1 bg-white text-sm px-5 py-4 outline-none text-[var(--color-brand-dark)] placeholder-[var(--color-text-muted)]"
               aria-label="Email address"
             />
             <button
-              className="bg-white text-[10px] uppercase tracking-[0.2em] font-bold px-6 py-4 border-l border-[#E4DDD6] hover:bg-[#F5F3EF] transition-colors"
+              className="bg-white text-xs uppercase tracking-[0.2em] font-bold px-6 py-4 border-l border-[#E4DDD6] hover:bg-[#F5F3EF] transition-colors"
               style={{ color: 'var(--color-brand-dark)' }}
             >
               Subscribe
             </button>
           </div>
-          <p className="text-white/40 text-[10px] mt-2">We respect your privacy. Unsubscribe anytime.</p>
+          <p className="text-white/40 text-xs mt-2">We respect your privacy. Unsubscribe anytime.</p>
         </div>
       </div>
     </section>

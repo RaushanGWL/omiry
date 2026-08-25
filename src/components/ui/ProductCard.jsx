@@ -13,7 +13,7 @@ const ProductCard = ({ product, onEnquire }) => {
     <div className="group flex flex-col bg-white border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-500 overflow-hidden relative">
       {/* Badge (optional) */}
       {badge && (
-        <div className="absolute top-4 left-4 z-10 bg-white border border-[var(--color-border)] px-3 py-1 text-[8px] uppercase tracking-[0.2em] font-bold text-[var(--color-brand-dark)] shadow-sm">
+        <div className="absolute top-4 left-4 z-10 bg-white border border-[var(--color-border)] px-3 py-1 text-xs uppercase tracking-[0.2em] font-bold text-[var(--color-brand-dark)] shadow-sm">
           {badge}
         </div>
       )}
@@ -29,27 +29,26 @@ const ProductCard = ({ product, onEnquire }) => {
         
         {/* Quick Add Overlay */}
         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex justify-center">
-          <span className="bg-[var(--color-brand-dark)] text-white text-[10px] uppercase tracking-[0.2em] font-bold py-3 px-6 w-full max-w-[200px] hover:bg-[#3d256e] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer">
-            View Details <ArrowRight size={12} />
+          <span className="bg-[var(--color-brand-dark)] text-white text-sm uppercase tracking-[0.2em] font-bold py-3 px-6 w-full max-w-[200px] hover:bg-[#3d256e] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer">
+            View Details <ArrowRight size={16} />
           </span>
         </div>
       </Link>
 
-      {/* Details */}
-      <div className="p-6 text-center bg-white flex flex-col h-[180px] justify-between">
+      <div className="p-6 text-center bg-white flex flex-col justify-between flex-1">
         <div>
-          <h3 className="text-[12px] font-bold uppercase tracking-[0.15em] mb-1.5 line-clamp-1" style={{ color: 'var(--color-brand-dark)' }} title={name}>
+          <h3 className="text-base font-bold uppercase tracking-[0.15em] mb-1.5 line-clamp-1" style={{ color: 'var(--color-brand-dark)' }} title={name}>
             {name}
           </h3>
-          <p className="text-[10px] font-light leading-relaxed mb-4 uppercase tracking-[0.1em] line-clamp-2" style={{ color: 'var(--color-text-muted)' }} title={subtitle}>
+          <p className="text-sm font-light leading-relaxed mb-4 uppercase tracking-[0.1em] line-clamp-2" style={{ color: 'var(--color-text-muted)' }} title={subtitle}>
             {subtitle}
           </p>
         </div>
         <div className="pt-4 border-t border-[#F0EBE3] flex gap-2">
-          <Link to={`/products/${id}`} className="flex-1 text-[9px] border border-[var(--color-brand-dark)] text-[var(--color-brand-dark)] py-3 uppercase tracking-[0.15em] font-bold hover:bg-gray-50 flex items-center justify-center transition-colors">
+          <Link to={`/products/${id}`} className="flex-1 text-xs border border-[var(--color-brand-dark)] text-[var(--color-brand-dark)] py-3 uppercase tracking-[0.15em] font-bold hover:bg-gray-50 flex items-center justify-center transition-colors">
             View Product
           </Link>
-          <button onClick={() => onEnquire(product)} className="flex-1 text-[9px] bg-[var(--color-brand-dark)] text-white py-3 uppercase tracking-[0.15em] font-bold hover:bg-[#3d256e] flex items-center justify-center transition-colors">
+          <button onClick={() => onEnquire(product)} className="flex-1 text-xs bg-[var(--color-brand-dark)] text-white py-3 uppercase tracking-[0.15em] font-bold hover:bg-[#3d256e] flex items-center justify-center transition-colors">
             Enquire Now
           </button>
         </div>

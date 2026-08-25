@@ -55,7 +55,7 @@ const CTASection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-screen-xl mx-auto
+      <div className="relative z-10 max-w-[1440px] mx-auto
                       px-8 md:px-16 lg:px-24 py-16
                       flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
@@ -66,7 +66,7 @@ const CTASection = () => {
             Timeless Creations.<br />
             Meaningful Connections.
           </h2>
-          <p className="text-[12px] text-white/55 font-light leading-relaxed">
+          <p className="text-sm text-white/55 font-light leading-relaxed">
             Be the first to discover new collections,<br />
             stories, and exclusive offers.
           </p>
@@ -75,7 +75,7 @@ const CTASection = () => {
         {/* Right form */}
         <div className="md:w-[56%] w-full">
           {sent ? (
-            <p className="text-[13px] text-[var(--color-gold-light)] font-light tracking-wide py-3">
+            <p className="text-sm text-[var(--color-gold-light)] font-light tracking-wide py-3">
               ✦ Thank you — you're on the list.
             </p>
           ) : (
@@ -89,7 +89,7 @@ const CTASection = () => {
                   required
                   aria-label="Email address"
                   className="flex-grow bg-white/10 border border-white/20 px-5 py-3.5
-                             text-[12px] text-white placeholder-white/35
+                             text-sm text-white placeholder-white/35
                              focus:outline-none focus:border-white/50 transition-colors"
                 />
                 <button
@@ -101,7 +101,7 @@ const CTASection = () => {
                   Subscribe
                 </button>
               </div>
-              <p className="text-[10px] text-white/35 font-light">
+              <p className="text-xs text-white/35 font-light">
                 We respect your privacy. Unsubscribe anytime.
               </p>
             </form>

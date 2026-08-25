@@ -26,7 +26,7 @@ const HeroSkeleton = () => (
       <div className="h-10 w-1/2 bg-[var(--color-brand-dark)]/10 rounded animate-pulse mb-7" />
       <div className="flex items-center gap-3 mb-7">
         <span className="w-24 h-[1px] bg-[var(--color-gold)]/30 block" />
-        <span className="text-[var(--color-gold)] text-[10px]">✦</span>
+        <span className="text-[var(--color-gold)] text-xs">✦</span>
         <span className="w-24 h-[1px] bg-[var(--color-gold)]/30 block" />
       </div>
       <div className="h-4 w-full bg-[var(--color-brand-dark)]/10 rounded animate-pulse mb-2" />
@@ -113,11 +113,11 @@ const HeroSection = () => {
         {/* Gold ornament + thin rule */}
         <div className="flex items-center gap-3 mb-7" aria-hidden="true">
           <span className="w-24 h-[1px] bg-gradient-to-r from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
-          <span className="text-[var(--color-gold)] text-[10px]">✦</span>
+          <span className="text-[var(--color-gold)] text-xs">✦</span>
           <span className="w-24 h-[1px] bg-gradient-to-l from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
         </div>
 
-        <p className="text-[13px] text-[var(--color-text-body)] font-light leading-[1.75] max-w-[340px] mb-10">
+        <p className="text-sm text-[var(--color-text-body)] font-light leading-[1.75] max-w-[340px] mb-10">
           {description}
         </p>
 

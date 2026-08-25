@@ -9,7 +9,7 @@ const SectionLabel = ({ children, align = 'center', className = '' }) => {
   return (
     <p
       className={`
-        text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-light)]
+        text-xs uppercase tracking-[0.2em] text-[var(--color-text-light)]
         flex items-center ${alignClass} gap-4 ${className}
       `}
     >

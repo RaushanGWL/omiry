@@ -13,7 +13,7 @@ const SectionHeading = ({ id, label }) => (
     </p>
     <div className="flex items-center justify-center gap-3 mt-3" aria-hidden="true">
       <span className="w-6 h-px bg-[var(--color-border)] block" />
-      <span className="text-[9px]" style={{ color: 'var(--color-gold)' }}>✦</span>
+      <span className="text-xs" style={{ color: 'var(--color-gold)' }}>✦</span>
       <span className="w-6 h-px bg-[var(--color-border)] block" />
     </div>
   </div>
@@ -27,7 +27,7 @@ const CraftsmanshipSection = () => {
     >
       <SectionHeading id="craftsmanship-heading" label="The OMRIY Craftsmanship" />
 
-      <div className="max-w-screen-lg mx-auto px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         <div className="relative">
           {/* Connector line */}
           <div
@@ -59,13 +59,13 @@ const CraftsmanshipSection = () => {
                     loading="lazy"
                   />
                 </div>
-                <p className="text-[9px] font-bold tracking-[0.25em] mb-1.5" style={{ color: 'var(--color-gold)' }}>
+                <p className="text-xs font-bold tracking-[0.25em] mb-1.5" style={{ color: 'var(--color-gold)' }}>
                   {number}
                 </p>
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] mb-2 leading-snug" style={{ color: 'var(--color-brand-dark)' }}>
+                <h3 className="text-xs font-bold uppercase tracking-[0.18em] mb-2 leading-snug" style={{ color: 'var(--color-brand-dark)' }}>
                   {title}
                 </h3>
-                <p className="text-[10.5px] font-light leading-relaxed max-w-[115px]" style={{ color: '#9A8E98' }}>
+                <p className="text-xs font-light leading-relaxed max-w-[115px]" style={{ color: '#9A8E98' }}>
                   {description}
                 </p>
               </div>

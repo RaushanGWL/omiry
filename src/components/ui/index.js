@@ -3,6 +3,7 @@
 
 export { default as Button } from './Button';
 export { default as SectionLabel } from './SectionLabel';
+export { default as ContactModal } from './ContactModal';
 export { default as Badge } from './Badge';
 export { default as ProductCard } from './ProductCard';
 export { default as BlogCard } from './BlogCard';

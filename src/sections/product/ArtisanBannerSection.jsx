@@ -3,7 +3,7 @@ import React from 'react';
 const ArtisanBannerSection = () => {
   return (
     <section className="bg-[var(--color-brand-light)] pb-16 pt-8">
-      <div className="max-w-screen-xl mx-auto px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         <div className="relative rounded-2xl overflow-hidden bg-[var(--color-cream-deep)] h-[360px] md:h-[440px] shadow-sm flex items-center">
           
           {/* Background Image */}
@@ -30,17 +30,17 @@ const ArtisanBannerSection = () => {
               <div className="h-px bg-[var(--color-gold)] w-12 opacity-50"></div>
             </div>
 
-            <p className="text-[12px] font-light text-[var(--color-text-body)] leading-relaxed mb-4">
+            <p className="text-sm font-light text-[var(--color-text-body)] leading-relaxed mb-4">
               At OMRIY, every sculpture is a celebration of nature's finest treasures and the hands that honor them.
             </p>
-            <p className="text-[12px] font-light text-[var(--color-text-body)] leading-relaxed mb-8">
+            <p className="text-sm font-light text-[var(--color-text-body)] leading-relaxed mb-8">
               Our artisans blend ancient techniques with a deep spiritual reverence to create heirlooms that transcend time and trends.
             </p>
 
             <div>
               {/* Founder Signature (Mocked with font) */}
               <div className="font-serif italic text-2xl mb-1" style={{ color: 'var(--color-brand-dark)' }}>Omriy Jean</div>
-              <p className="text-[9px] uppercase tracking-[0.2em] font-bold text-[var(--color-text-muted)]">
+              <p className="text-xs uppercase tracking-[0.2em] font-bold text-[var(--color-text-muted)]">
                 FOUNDER, OMRIY
               </p>
             </div>

@@ -13,7 +13,7 @@ const AboutHeroSection = () => {
                       py-16 md:py-20 order-2 md:order-1">
 
         {/* Label */}
-        <p className="uppercase tracking-[0.25em] text-[9px] font-semibold mb-6" style={{ color: 'var(--color-gold)' }}>
+        <p className="uppercase tracking-[0.25em] text-xs font-semibold mb-6" style={{ color: 'var(--color-gold)' }}>
           About OMRIY
         </p>
 
@@ -31,11 +31,11 @@ const AboutHeroSection = () => {
         {/* Gold divider */}
         <div className="flex items-center gap-3 mb-7" aria-hidden="true">
           <span className="w-20 h-[1px] bg-gradient-to-r from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
-          <span className="text-[var(--color-gold)] text-[10px]">✦</span>
+          <span className="text-[var(--color-gold)] text-xs">✦</span>
           <span className="w-20 h-[1px] bg-gradient-to-l from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
         </div>
 
-        <p className="text-[13px] text-[var(--color-text-body)] font-light leading-[1.8] max-w-[360px] mb-10">
+        <p className="text-sm text-[var(--color-text-body)] font-light leading-[1.8] max-w-[360px] mb-10">
           OMRIY creates timeless gemstone sculptures that honor nature's beauty and spiritual
           traditions. Each piece is a union of art, devotion, and the world's finest natural gemstones.
         </p>

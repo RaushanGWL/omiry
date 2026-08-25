@@ -63,13 +63,13 @@ const BlogPage = () => {
         <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] mb-6 text-[var(--color-brand-dark)]">
           The OMRIY Journal
         </h1>
-        <p className="text-[13px] font-light text-[var(--color-text-body)] max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm font-light text-[var(--color-text-body)] max-w-xl mx-auto leading-relaxed">
           Musings on craftsmanship, interior design, and the spiritual heritage of our gemstone collections.
         </p>
       </section>
 
       {/* Blog Grid */}
-      <section className="max-w-screen-xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {[...Array(4)].map((_, i) => (

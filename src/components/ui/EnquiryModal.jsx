@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { X, ChevronDown, Search } from 'lucide-react';
 import { countryCodes } from '../../constants/countryCodes';
 
-const CountryCodePicker = ({ value, onChange }) => {
+export const CountryCodePicker = ({ value, onChange }) => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
   const ref = useRef(null);
@@ -30,7 +30,7 @@ const CountryCodePicker = ({ value, onChange }) => {
       <button
         type="button"
         onClick={() => { setOpen(o => !o); setSearch(''); }}
-        className="flex items-center gap-1 h-full px-3 border-r border-[var(--color-border)] text-[13px] bg-transparent focus:outline-none whitespace-nowrap"
+        className="flex items-center gap-1 h-full px-3 border-r border-[var(--color-border)] text-sm bg-transparent focus:outline-none whitespace-nowrap"
       >
         <span className="font-medium text-[var(--color-brand-dark)]">{selected.code}</span>
         <ChevronDown size={12} className={`text-[var(--color-text-muted)] transition-transform ${open ? 'rotate-180' : ''}`} />
@@ -47,19 +47,19 @@ const CountryCodePicker = ({ value, onChange }) => {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search country..."
-              className="flex-1 text-[12px] focus:outline-none bg-transparent"
+              className="flex-1 text-sm focus:outline-none bg-transparent"
             />
           </div>
           {/* List */}
           <ul className="max-h-48 overflow-y-auto">
             {filtered.length === 0 && (
-              <li className="px-3 py-2 text-[12px] text-[var(--color-text-muted)]">No results</li>
+              <li className="px-3 py-2 text-sm text-[var(--color-text-muted)]">No results</li>
             )}
             {filtered.map((c, i) => (
               <li
                 key={i}
                 onClick={() => { onChange(c.code); setOpen(false); setSearch(''); }}
-                className={`flex items-center gap-2 px-3 py-2 text-[12px] cursor-pointer hover:bg-[var(--color-brand-light)] ${c.code === value ? 'bg-[#F0EBF8] font-semibold text-[var(--color-brand-dark)]' : 'text-[var(--color-text-body)]'}`}
+                className={`flex items-center gap-2 px-3 py-2 text-sm cursor-pointer hover:bg-[var(--color-brand-light)] ${c.code === value ? 'bg-[#F0EBF8] font-semibold text-[var(--color-brand-dark)]' : 'text-[var(--color-text-body)]'}`}
               >
                 <span className="font-mono text-[var(--color-brand-dark)] w-12 shrink-0">{c.code}</span>
                 <span className="truncate">{c.country}</span>
@@ -140,13 +140,13 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
         
         <div className="p-8">
           <h2 className="font-serif text-2xl text-[var(--color-brand-dark)] mb-2">Enquire Now</h2>
-          <p className="text-[12px] font-light text-[var(--color-text-body)] mb-6">
+          <p className="text-sm font-light text-[var(--color-text-body)] mb-6">
             Please provide your details to learn more about this exclusive piece.
           </p>
 
           <div className="bg-[var(--color-brand-light)] p-4 mb-6 border border-[var(--color-border)]">
-            <h3 className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-1">{product.name}</h3>
-            <div className="flex gap-4 text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-1">{product.name}</h3>
+            <div className="flex gap-4 text-xs text-[var(--color-text-muted)] uppercase tracking-wider">
               <span>SKU: {product.sku || 'N/A'}</span>
               <span>•</span>
               <span>{collectionName}</span>
@@ -155,7 +155,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
+              <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Full Name *
               </label>
               <input 
@@ -164,13 +164,13 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
+                className="w-full border border-[var(--color-border)] p-3 text-sm bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
                 placeholder="Enter your full name"
               />
             </div>
             
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
+              <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Email Address *
               </label>
               <input 
@@ -179,13 +179,13 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-[var(--color-border)] p-3 text-[13px] bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
+                className="w-full border border-[var(--color-border)] p-3 text-sm bg-white focus:outline-none focus:border-[var(--color-brand-dark)]"
                 placeholder="Enter your email address"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
+              <label className="block text-xs font-bold uppercase tracking-widest text-[var(--color-brand-dark)] mb-2">
                 Mobile Number *
               </label>
               <div className="flex border border-[var(--color-border)] bg-white focus-within:border-[var(--color-brand-dark)]">
@@ -199,7 +199,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
                   required
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="flex-1 p-3 text-[13px] bg-transparent focus:outline-none min-w-0"
+                  className="flex-1 p-3 text-sm bg-transparent focus:outline-none min-w-0"
                   placeholder="Enter your mobile number"
                 />
               </div>
@@ -208,7 +208,7 @@ const EnquiryModal = ({ isOpen, onClose, product }) => {
             <button 
               type="submit"
               disabled={isSubmitting}
-              className="mt-4 w-full bg-[var(--color-brand-dark)] text-white py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#3d256e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 w-full bg-[var(--color-brand-dark)] text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#3d256e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
             </button>
