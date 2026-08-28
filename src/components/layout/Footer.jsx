@@ -58,7 +58,7 @@ const Footer = () => (
 
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
-          <div className="font-serif text-[22px] tracking-[0.28em] mb-4">OMRIY</div>
+          <div className="font-serif text-[22px] tracking-[0.28em] text-[#B78A49] mb-4">OMRIY</div>
           <p className="text-xs text-gray-500 font-light leading-relaxed mb-6">
             Timeless gemstone sculptures,<br/>
             handcrafted with devotion<br/>

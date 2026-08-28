@@ -66,7 +66,7 @@ const Navbar = () => {
           <a
             href="/"
             aria-label="OMRIY Home"
-            className="font-serif text-[26px] tracking-[0.32em] text-[var(--color-brand-dark)] font-semibold hover:text-[var(--color-brand-mid)] transition-colors"
+            className="font-serif text-[26px] tracking-[0.32em] text-[#B78A49] font-semibold hover:text-[#B78A49]/80 transition-colors"
           >
             OMRIY
           </a>

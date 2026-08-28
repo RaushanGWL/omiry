@@ -3,11 +3,13 @@ import { useSearchParams } from 'react-router-dom';
 import { ProductCard, EnquiryModal, ContactModal } from '../components/ui';
 
 const CollectionsPage = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const collectionId = searchParams.get('collection_id');
   const bestSeller = searchParams.get('best_seller');
+  const page = parseInt(searchParams.get('page') || '1', 10);
 
   const [products, setProducts] = useState([]);
+  const [pagination, setPagination] = useState({ page: 1, limit: 20, total: 0, total_pages: 1 });
   const [loading, setLoading] = useState(true);
   const [enquiryProduct, setEnquiryProduct] = useState(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -23,6 +25,7 @@ const CollectionsPage = () => {
         const urlParams = new URLSearchParams();
         if (collectionId) urlParams.append('collection_id', collectionId);
         if (bestSeller) urlParams.append('best_seller', bestSeller);
+        urlParams.append('page', page);
 
         const url = `${supabaseUrl}/functions/v1/products${urlParams.toString() ? `?${urlParams.toString()}` : ''}`;
 
@@ -34,6 +37,12 @@ const CollectionsPage = () => {
         const json = await response.json();
         if (json.success && json.data) {
           setProducts(json.data);
+          if (json.pagination) {
+            setPagination(json.pagination);
+          } else {
+            // fallback if pagination is missing for some reason
+            setPagination(prev => ({ ...prev, total: json.data.length }));
+          }
         }
       } catch (error) {
         console.error('Failed to fetch products', error);
@@ -42,7 +51,16 @@ const CollectionsPage = () => {
       }
     };
     fetchProducts();
-  }, [collectionId, bestSeller]);
+  }, [collectionId, bestSeller, page]);
+
+  const handlePageChange = (newPage) => {
+    setSearchParams((prev) => {
+      prev.set('page', newPage);
+      return prev;
+    });
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
@@ -66,7 +84,7 @@ const CollectionsPage = () => {
           <button className="hover:text-[var(--color-gold)] transition-colors hidden sm:block">Sort By</button>
         </div>
         <div>
-          <span>{products.length} Products</span>
+          <span>{pagination.total || products.length} Products</span>
         </div>
       </section>
 
@@ -75,15 +93,40 @@ const CollectionsPage = () => {
         {loading ? (
           <div className="text-center py-20 text-[var(--color-brand-dark)]">Loading...</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onEnquire={setEnquiryProduct}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onEnquire={setEnquiryProduct}
+                />
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            {pagination.total_pages > 1 && (
+              <div className="mt-16 flex justify-center items-center gap-4">
+                <button
+                  onClick={() => handlePageChange(pagination.page - 1)}
+                  disabled={pagination.page <= 1}
+                  className="px-4 py-2 text-sm uppercase tracking-widest font-medium border border-[var(--color-border)] disabled:opacity-50 hover:bg-white transition-colors"
+                >
+                  Previous
+                </button>
+                <span className="text-sm font-medium px-4 text-[var(--color-brand-dark)]">
+                  Page {pagination.page} of {pagination.total_pages}
+                </span>
+                <button
+                  onClick={() => handlePageChange(pagination.page + 1)}
+                  disabled={pagination.page >= pagination.total_pages}
+                  className="px-4 py-2 text-sm uppercase tracking-widest font-medium border border-[var(--color-border)] disabled:opacity-50 hover:bg-white transition-colors"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
 
