@@ -79,8 +79,8 @@ const ContactPage = () => {
                   </a>
                 </p>
                 <p className="text-sm font-light text-[var(--color-text-body)]">
-                  <a href="tel:+18001234567" className="hover:text-[var(--color-gold)] transition-colors">
-                    +1 (800) 123-4567
+                  <a href="tel:+15102039490" className="hover:text-[var(--color-gold)] transition-colors">
+                    +1 (510) 203-9490
                   </a>
                 </p>
               </div>
@@ -88,9 +88,8 @@ const ContactPage = () => {
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">Studio & Showroom</h3>
                 <p className="text-sm font-light text-[var(--color-text-body)] leading-relaxed">
-                  123 Artisan Avenue<br />
-                  Suite 400<br />
-                  New York, NY 10012<br />
+                  804 N Weston Ln<br />
+                  Austin, TX 78733<br />
                   United States
                 </p>
               </div>

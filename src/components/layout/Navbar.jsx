@@ -76,31 +76,6 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-7 flex-1 justify-end">
           {RIGHT.map(l => <NavLink key={l.label} {...l} />)}
 
-          {/* Vertical rule */}
-          <span className="w-px h-4 bg-[var(--color-border)] mx-1" aria-hidden="true" />
-
-          {/* Icon buttons */}
-          <button aria-label="Search"
-            className="text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
-          >
-            <Search size={17} strokeWidth={1.5} />
-          </button>
-          
-          <Link to="/login" aria-label="Account"
-            className="text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
-          >
-            <User size={17} strokeWidth={1.5} />
-          </Link>
-
-          <button aria-label="Cart – 0 items"
-            className="relative text-[var(--color-text-body)] hover:text-[var(--color-brand-dark)] transition-colors"
-          >
-            <ShoppingBag size={17} strokeWidth={1.5} />
-            <span className="absolute -top-1.5 -right-1.5 bg-[var(--color-brand-dark)] text-white
-              text-xs w-[14px] h-[14px] rounded-full flex items-center justify-center font-bold leading-none">
-              0
-            </span>
-          </button>
         </div>
 
         {/* MOBILE hamburger */}
