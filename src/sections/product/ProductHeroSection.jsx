@@ -5,6 +5,15 @@ import { Button } from '../../components/ui';
 
 const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const [magnifierPos, setMagnifierPos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setMagnifierPos({ x, y });
+  };
 
   // Map API data to what the UI expects
   const displayProduct = {
@@ -50,10 +59,10 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
           <span className="text-[var(--color-brand-dark)]">{displayProduct.name}</span>
         </nav>
 
-        <div className="flex flex-col lg:flex-row gap-12 xl:gap-20">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-12 xl:gap-20">
           
           {/* Left Column: Image Gallery */}
-          <div className="flex-1 flex gap-4 xl:gap-6">
+          <div className="flex-1 flex gap-4 xl:gap-6 relative">
             
             {/* Thumbnails */}
             <div className="hidden sm:flex flex-col gap-4 w-20 xl:w-24 shrink-0">
@@ -76,16 +85,48 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
             </div>
 
             {/* Main Image */}
-            <div className="flex-1 relative bg-white border border-[var(--color-border)] aspect-[4/5] sm:aspect-square lg:aspect-[4/5] xl:aspect-square overflow-hidden group flex items-center justify-center">
+            <div 
+              className="flex-1 relative bg-white border border-[var(--color-border)] w-full lg:w-[85%] lg:flex-none h-[80vh] overflow-hidden group flex items-center justify-center cursor-crosshair"
+              onMouseEnter={() => setShowMagnifier(true)}
+              onMouseLeave={() => setShowMagnifier(false)}
+              onMouseMove={handleMouseMove}
+            >
               <img
                 src={displayProduct.images[activeImageIndex]}
                 alt={displayProduct.name}
                 className="w-[85%] h-[85%] object-contain"
               />
-              <button className="absolute bottom-6 right-6 bg-white rounded-full p-3 shadow-md hover:scale-105 transition-transform text-[var(--color-brand-dark)]">
+              <button className="absolute bottom-6 right-6 bg-white rounded-full p-3 shadow-md hover:scale-105 transition-transform text-[var(--color-brand-dark)] z-10">
                 <Search size={18} />
               </button>
+
+              {/* Lens Overlay */}
+              {showMagnifier && (
+                <div 
+                  className="absolute pointer-events-none hidden lg:block bg-blue-500/10 border border-blue-500/20"
+                  style={{
+                    width: '33.33%',
+                    height: '33.33%',
+                    top: `${magnifierPos.y}%`,
+                    left: `${magnifierPos.x}%`,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                />
+              )}
             </div>
+
+            {/* Magnified Result */}
+            {showMagnifier && (
+              <div 
+                className="absolute top-0 left-full ml-12 xl:ml-20 w-[550px] xl:w-[650px] h-[80vh] bg-white border border-[var(--color-border)] z-50 hidden lg:block shadow-2xl"
+                style={{
+                  backgroundImage: `url('${displayProduct.images[activeImageIndex]}')`,
+                  backgroundPosition: `${magnifierPos.x}% ${magnifierPos.y}%`,
+                  backgroundSize: '250%',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              />
+            )}
           </div>
 
           {/* Right Column: Product Info */}
