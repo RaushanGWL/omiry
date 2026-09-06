@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button } from '../components/ui';
 import { COUNTRY_CODES } from '../constants/countries';
+import SEO from '../components/SEO';
 
 const ContactPage = () => {
   // Scroll to top on mount
@@ -51,6 +52,7 @@ const ContactPage = () => {
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
+      <SEO pageKey="contact" />
 
       {/* Hero Section */}
       <section className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)]">

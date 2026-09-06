@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ProductCard, EnquiryModal, ContactModal } from '../components/ui';
+import SEO from '../components/SEO';
 
 const CollectionsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -64,6 +65,7 @@ const CollectionsPage = () => {
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
+      <SEO pageKey="collections" />
       {/* 1. Header Section */}
       <section className="bg-[var(--color-brand-light)] border-b border-[var(--color-border)] py-16 md:py-24 text-center px-6">
         <p className="uppercase tracking-[0.25em] text-xs font-semibold mb-4" style={{ color: 'var(--color-gold)' }}>

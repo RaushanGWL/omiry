@@ -11,7 +11,7 @@ const FounderMessageSection = () => {
         <div className="w-full md:w-[48%] h-[300px] md:h-full overflow-hidden bg-[#DDD5CC]">
           <img
             src="/assets/images/craftsmanship.png"
-            alt="R. K. Mehta, Founder and Head Artisan"
+            alt="Hitesh Israni, Founder and Head Artisan"
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -38,13 +38,17 @@ const FounderMessageSection = () => {
             positivity into your life and home.
           </blockquote>
 
-          {/* Signature */}
-          <div className="mb-1">
-            <p className="font-serif italic text-[1.05rem]" style={{ color: 'var(--color-brand-dark)' }}>R. K. Mehta</p>
+          {/* Signatures */}
+          <div className="flex flex-col gap-4 mt-2">
+            <div>
+              <a href="https://www.linkedin.com/in/hitesh-indersen-israni" target="_blank" rel="noreferrer" className="font-serif italic text-[1.1rem] hover:text-[var(--color-gold)] transition-colors inline-block mb-0.5" style={{ color: 'var(--color-brand-dark)' }}>Hitesh Israni</a>
+              <p className="uppercase tracking-[0.2em] text-[10px] font-semibold" style={{ color: 'var(--color-text-muted)' }}>Founder & Head Artisan</p>
+            </div>
+            <div>
+              <a href="https://www.linkedin.com/in/miyaisrani" target="_blank" rel="noreferrer" className="font-serif italic text-[1.1rem] hover:text-[var(--color-gold)] transition-colors inline-block mb-0.5" style={{ color: 'var(--color-brand-dark)' }}>Manisha Israni</a>
+              <p className="uppercase tracking-[0.2em] text-[10px] font-semibold" style={{ color: 'var(--color-text-muted)' }}>Co-founder</p>
+            </div>
           </div>
-          <p className="uppercase tracking-[0.2em] text-xs font-semibold" style={{ color: 'var(--color-text-muted)' }}>
-            Founder & Head Artisan
-          </p>
         </div>
       </div>
     </section>

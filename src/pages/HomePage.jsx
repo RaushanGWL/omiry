@@ -3,6 +3,7 @@
 // Router-ready: swap contents for <Outlet /> when React Router is added.
 
 import React from 'react';
+import SEO from '../components/SEO';
 import {
   HeroSection,
   CollectionsSection,
@@ -16,6 +17,7 @@ import {
 
 const HomePage = () => (
   <main id="main-content" tabIndex={-1}>
+    <SEO pageKey="home" />
     <HeroSection />
     <CollectionsSection />
     <ProcessSection />

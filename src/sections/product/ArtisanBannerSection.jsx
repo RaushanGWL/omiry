@@ -37,12 +37,19 @@ const ArtisanBannerSection = () => {
               Our artisans blend ancient techniques with a deep spiritual reverence to create heirlooms that transcend time and trends.
             </p>
 
-            <div>
-              {/* Founder Signature (Mocked with font) */}
-              <div className="font-serif italic text-2xl mb-1" style={{ color: 'var(--color-brand-dark)' }}>Omriy Jean</div>
-              <p className="text-xs uppercase tracking-[0.2em] font-bold text-[var(--color-text-muted)]">
-                FOUNDER, OMRIY
-              </p>
+            <div className="flex gap-10 mt-6">
+              <div>
+                <a href="https://www.linkedin.com/in/hitesh-indersen-israni" target="_blank" rel="noreferrer" className="block font-serif italic text-2xl mb-1 hover:text-[var(--color-gold)] transition-colors" style={{ color: 'var(--color-brand-dark)' }}>Hitesh Israni</a>
+                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-text-muted)]">
+                  FOUNDER
+                </p>
+              </div>
+              <div>
+                <a href="https://www.linkedin.com/in/miyaisrani" target="_blank" rel="noreferrer" className="block font-serif italic text-2xl mb-1 hover:text-[var(--color-gold)] transition-colors" style={{ color: 'var(--color-brand-dark)' }}>Manisha Israni</a>
+                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-text-muted)]">
+                  CO-FOUNDER
+                </p>
+              </div>
             </div>
           </div>
 

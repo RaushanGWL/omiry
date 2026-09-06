@@ -8,6 +8,7 @@ import {
 } from '../sections/product';
 import { CTASection } from '../sections';
 import { EnquiryModal } from '../components/ui';
+import SEO from '../components/SEO';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -68,6 +69,7 @@ const ProductPage = () => {
 
   return (
     <main id="main-content" tabIndex={-1}>
+      <SEO pageKey="product" />
       <ProductHeroSection product={product} onEnquire={setEnquiryProduct} />
       <ProductDetailsTabs product={product} />
       <ArtisanBannerSection />

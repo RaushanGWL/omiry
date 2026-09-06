@@ -18,10 +18,10 @@ function splitHeading(heading = '') {
 // Shimmer placeholder for loading state
 const HeroSkeleton = () => (
   <section
-    className="bg-[var(--color-brand-light)] flex flex-col md:flex-row min-h-[60vh]"
+    className="relative flex flex-col min-h-[60vh] bg-[var(--color-brand-light)]"
     aria-label="Hero loading"
   >
-    <div className="w-full md:w-[46%] flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-20 xl:px-24 py-16 md:py-20 order-2 md:order-1">
+    <div className="relative z-10 w-full md:w-[50%] flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-20 xl:px-24 py-16 md:py-20">
       <div className="h-10 w-3/4 bg-[var(--color-brand-dark)]/10 rounded animate-pulse mb-3" />
       <div className="h-10 w-1/2 bg-[var(--color-brand-dark)]/10 rounded animate-pulse mb-7" />
       <div className="flex items-center gap-3 mb-7">
@@ -34,7 +34,7 @@ const HeroSkeleton = () => (
       <div className="h-4 w-2/3 bg-[var(--color-brand-dark)]/10 rounded animate-pulse mb-10" />
       <div className="h-10 w-36 bg-[var(--color-brand-dark)]/10 rounded animate-pulse" />
     </div>
-    <div className="w-full md:w-[54%] min-h-[55vw] md:min-h-0 bg-[#F0EDE8] animate-pulse order-1 md:order-2" />
+    <div className="absolute inset-0 z-0 w-full h-full bg-[#F0EDE8] animate-pulse" />
   </section>
 );
 
@@ -84,14 +84,28 @@ const HeroSection = () => {
 
   return (
     <section
-      className="bg-[var(--color-brand-light)] flex flex-col md:flex-row min-h-[60vh]"
+      className="relative flex flex-col justify-center min-h-[60vh] md:min-h-[70vh] bg-[var(--color-brand-light)] overflow-hidden"
       aria-label="Hero"
     >
+      {/* ── BACKGROUND IMAGE & GRADIENT ── */}
+      <div className="absolute inset-0 z-0 w-full h-full flex justify-end">
+        <div className="relative w-full h-full">
+          <img
+            src={imageUrl}
+            alt={heading}
+            className="absolute inset-0 w-full h-full object-cover object-right md:object-center"
+            loading="eager"
+          />
+          {/* Gradient overlay: blends from background color on left to transparent on right */}
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[var(--color-brand-light)] via-[var(--color-brand-light)]/90 to-transparent md:w-[70%] lg:w-[60%]"></div>
+        </div>
+      </div>
+
       {/* ── LEFT COPY ── */}
       <div
-        className="w-full md:w-[46%] flex flex-col justify-center
+        className="relative z-10 w-full md:w-[55%] lg:w-[50%] flex flex-col justify-center
                    px-8 sm:px-12 md:px-14 lg:px-20 xl:px-24
-                   py-16 md:py-20 order-2 md:order-1"
+                   py-16 md:py-24"
       >
         {/* h1 — small-caps Playfair */}
         <h1 className="font-serif font-normal leading-[1.2] text-[var(--color-brand-dark)] text-[2.5rem] md:text-[3.2rem] mb-4">
@@ -112,31 +126,17 @@ const HeroSection = () => {
 
         {/* Gold ornament + thin rule */}
         <div className="flex items-center gap-3 mb-7" aria-hidden="true">
-          <span className="w-24 h-[1px] bg-gradient-to-r from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
           <span className="text-[var(--color-gold)] text-xs">✦</span>
-          <span className="w-24 h-[1px] bg-gradient-to-l from-[var(--color-brand-dark)]/10 to-[var(--color-gold)]/60 block" />
+          <span className="w-24 h-[1px] bg-gradient-to-r from-[var(--color-gold)]/60 to-transparent block" />
         </div>
 
-        <p className="text-sm text-[var(--color-text-body)] font-light leading-[1.75] max-w-[340px] mb-10">
+        <p className="text-sm text-[var(--color-text-body)] font-light leading-[1.75] max-w-[380px] mb-10">
           {description}
         </p>
 
-        <Link to={ctaUrl} className="btn-primary self-start">
+        <Link to={ctaUrl} className="btn-primary self-start shadow-sm hover:shadow-md transition-shadow">
           {ctaText} <ArrowRight size={13} strokeWidth={1.5} />
         </Link>
-      </div>
-
-      {/* ── RIGHT IMAGE PANEL ── */}
-      <div
-        className="w-full md:w-[54%] relative overflow-hidden order-1 md:order-2
-                   min-h-[55vw] md:min-h-0 bg-[#F6F4F0]"
-      >
-        <img
-          src={imageUrl}
-          alt={heading}
-          className="absolute inset-0 z-10 w-full h-full object-cover object-center"
-          loading="eager"
-        />
       </div>
     </section>
   );

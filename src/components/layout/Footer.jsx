@@ -10,9 +10,11 @@ const InstagramIcon = () => (
     <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
   </svg>
 );
-const PinterestIcon = () => (
+const LinkedInIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.19-.77 1.28-5.43 1.28-5.43s-.33-.65-.33-1.62c0-1.52.88-2.65 1.97-2.65.93 0 1.38.7 1.38 1.54 0 .94-.6 2.34-.91 3.64-.26 1.09.54 1.97 1.6 1.97 1.92 0 3.4-2.02 3.4-4.95 0-2.59-1.86-4.4-4.52-4.4-3.08 0-4.89 2.31-4.89 4.7 0 .93.36 1.93.81 2.48a.32.32 0 0 1 .07.31c-.08.34-.27 1.09-.3 1.24-.05.2-.17.24-.38.14C5.93 14.86 5 13.1 5 11.14 5 7.7 7.58 4.56 12.4 4.56c3.94 0 7.01 2.81 7.01 6.55 0 3.91-2.47 7.06-5.89 7.06-1.15 0-2.23-.6-2.6-1.3l-.71 2.63c-.26.98-.95 2.21-1.42 2.96.57.17 1.16.26 1.77.26 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect x="2" y="9" width="4" height="12"/>
+    <circle cx="4" cy="4" r="2"/>
   </svg>
 );
 const YoutubeIcon = () => (
@@ -65,10 +67,10 @@ const Footer = () => (
             and designed to inspire.
           </p>
           <div className="flex items-center gap-4">
-            {[{ Icon: InstagramIcon, label: 'Instagram' },
-              { Icon: PinterestIcon, label: 'Pinterest' },
-              { Icon: YoutubeIcon,   label: 'YouTube' }].map(({ Icon, label }) => (
-              <a key={label} href="#" aria-label={label}
+            {[{ Icon: InstagramIcon, label: 'Instagram', url: 'https://www.instagram.com/omriy.arts?stkn=cGx0MjE1M3loZzV3' },
+              { Icon: LinkedInIcon, label: 'LinkedIn', url: 'https://www.linkedin.com/in/hitesh-indersen-israni/' },
+              { Icon: YoutubeIcon,   label: 'YouTube', url: '#' }].map(({ Icon, label, url }) => (
+              <a key={label} href={url} target={url !== '#' ? '_blank' : undefined} rel={url !== '#' ? 'noreferrer' : undefined} aria-label={label}
                 className="text-gray-600 hover:text-[var(--color-gold-light)] transition-colors">
                 <Icon />
               </a>
@@ -90,8 +92,8 @@ const Footer = () => (
           <h4 className="text-[9.5px] font-bold uppercase tracking-[0.25em] text-white/80 mb-5">Contact</h4>
           <address className="not-italic space-y-2.5 text-xs text-gray-500 font-light mb-6">
             <p>hello@omriy.com</p>
-            <p>+91 22345-67890</p>
-            <p>New York, NY, USA</p>
+            <p>+1 (510) 203-9490</p>
+            <p>804 N Weston Ln, Austin 78733 Texas</p>
           </address>
           <GemOutline />
         </div>

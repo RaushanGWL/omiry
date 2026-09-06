@@ -29,7 +29,7 @@ const ProductCard = ({ product, onEnquire }) => {
         
         {/* Quick Add Overlay */}
         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex justify-center">
-          <span className="bg-[var(--color-brand-dark)] text-white text-sm uppercase tracking-[0.2em] font-bold py-3 px-6 w-full max-w-[200px] hover:bg-[#3d256e] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer">
+          <span className="bg-[var(--color-brand-dark)] text-white text-sm uppercase tracking-[0.2em] font-bold py-3 px-6 w-full max-w-[240px] whitespace-nowrap hover:bg-[#3d256e] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer">
             View Details <ArrowRight size={16} />
           </span>
         </div>

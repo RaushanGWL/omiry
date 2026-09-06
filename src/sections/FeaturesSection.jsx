@@ -50,26 +50,28 @@ const FEATURES = [
 
 const FeaturesSection = () => (
   <section
-    className="bg-white border-t border-b border-[var(--color-border)]"
+    className="bg-[var(--color-brand-light)] py-16"
     aria-label="Key features"
   >
-    <div className="max-w-[1440px] mx-auto
-                    grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-                    divide-y sm:divide-y-0 lg:divide-x divide-[var(--color-border)]">
-      {FEATURES.map(({ Icon, title, desc }) => (
-        <div key={title} className="flex flex-col items-center text-center px-8 py-10">
-          <div className="text-[var(--color-text-muted)] mb-5 opacity-70">
-            <Icon />
+    <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[var(--color-border)] border border-[var(--color-border)] bg-white">
+        {FEATURES.map(({ Icon, title, desc }) => (
+          <div key={title} className="flex flex-col items-center text-center px-6 py-10">
+            <div 
+              className="w-[60px] h-[60px] rounded-full flex items-center justify-center mb-5"
+              style={{ background: '#F8F4EE', border: '1px solid #EBE4DB', color: 'var(--color-brand-dark)' }}
+            >
+              <Icon />
+            </div>
+            <h4 className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[var(--color-brand-dark)] mb-3">
+              {title}
+            </h4>
+            <p className="text-[13px] text-[var(--color-text-body)] font-medium leading-[1.8] max-w-[180px]">
+              {desc}
+            </p>
           </div>
-          <h4 className="text-[9.5px] font-bold uppercase tracking-[0.22em]
-                         text-[var(--color-text-dark)] mb-2.5">
-            {title}
-          </h4>
-          <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed max-w-[160px]">
-            {desc}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEO from '../components/SEO';
 import { CTASection, FAQSection } from '../sections';
 
 const BLOGS_API_URL = 'https://qmfsodjevoooohalsorw.supabase.co/functions/v1/blogs';
@@ -54,6 +55,9 @@ const ArticlePage = () => {
             category: found.category || '',
             image: found.cover_image_url || found.thumbnail_url || found.image || '',
             content: found.content || '',
+            seo_title: found.seo_title || found.title,
+            seo_description: found.seo_description || found.excerpt || '',
+            seo_schema_markup: found.seo_schema_markup || null,
           });
         }
       } catch (err) {
@@ -107,6 +111,13 @@ const ArticlePage = () => {
   // ── Article ───────────────────────────────────────────────────────────────
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
+      <SEO 
+        customSeoData={{
+          seo_title: post.seo_title,
+          seo_description: post.seo_description,
+          seo_schema_markup: post.seo_schema_markup
+        }} 
+      />
       <article itemScope itemType="http://schema.org/BlogPosting">
         <meta itemProp="datePublished" content={post.date} />
         <meta itemProp="author" content={post.author} />

@@ -1,6 +1,7 @@
 // src/pages/AboutPage.jsx
 // Pixel-matched to the provided design mockup, modularized version
 import React from 'react';
+import SEO from '../components/SEO';
 
 import {
   AboutHeroSection,
@@ -16,6 +17,7 @@ import {
 const AboutPage = () => {
   return (
     <main id="main-content" tabIndex={-1}>
+      <SEO pageKey="about" />
       <AboutHeroSection />
       <OurStorySection />
       <CraftsmanshipSection />

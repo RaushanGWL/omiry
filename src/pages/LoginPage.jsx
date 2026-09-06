@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -17,6 +18,7 @@ const LoginPage = () => {
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)] flex flex-col justify-center items-center py-16 md:py-24">
+      <SEO pageKey="login" />
       <div className="w-full max-w-md bg-white p-8 md:p-12 border border-[var(--color-border)] shadow-sm">
         
         {/* Header */}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BlogCard } from '../components/ui';
+import SEO from '../components/SEO';
 import { CTASection } from '../sections';
 
 const BLOGS_API_URL = 'https://qmfsodjevoooohalsorw.supabase.co/functions/v1/blogs';
@@ -57,6 +58,7 @@ const BlogPage = () => {
 
   return (
     <main id="main-content" tabIndex={-1} className="min-h-screen bg-[var(--color-brand-light)]">
+      <SEO pageKey="blog" />
 
       {/* Hero Section */}
       <section className="bg-[var(--color-brand-light)] py-16 md:py-24 text-center border-b border-[var(--color-border)] px-6">
