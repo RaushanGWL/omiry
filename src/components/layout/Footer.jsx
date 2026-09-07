@@ -1,6 +1,7 @@
 // src/components/layout/Footer.jsx
 // Pixel-matched to design: 5-col grid, exact links, address, gem SVG, social icons
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /* Inline SVG social icons */
 const InstagramIcon = () => (
@@ -24,27 +25,21 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-/* Decorative gem/diamond outline in Contact column */
-const GemOutline = () => (
-  <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" strokeLinejoin="round" className="w-20 h-20 text-[var(--color-gold)] opacity-25">
-    <polygon points="40,8 68,28 60,68 20,68 12,28"/>
-    <polyline points="12,28 40,36 68,28"/>
-    <line x1="20" y1="68" x2="40" y2="36"/>
-    <line x1="60" y1="68" x2="40" y2="36"/>
-    <polyline points="28,8 40,8 52,8"/>
-    <line x1="28" y1="8" x2="12" y2="28"/>
-    <line x1="52" y1="8" x2="68" y2="28"/>
-    <line x1="40" y1="8" x2="40" y2="36"/>
+const FacebookIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
   </svg>
 );
+
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 const FooterCol = ({ title, links }) => (
   <div>
     <h4 className="text-[9.5px] font-bold uppercase tracking-[0.25em] text-white/80 mb-5">{title}</h4>
     <ul className="space-y-3">
-      {links.map(l => (
-        <li key={l}>
-          <a href="#" className="text-xs text-gray-500 hover:text-white transition-colors font-light">{l}</a>
+      {links.map((l, i) => (
+        <li key={i}>
+          <Link to={l.path} onClick={scrollToTop} className="text-xs text-gray-500 hover:text-white transition-colors font-light">{l.label}</Link>
         </li>
       ))}
     </ul>
@@ -67,9 +62,10 @@ const Footer = () => (
             and designed to inspire.
           </p>
           <div className="flex items-center gap-4">
-            {[{ Icon: InstagramIcon, label: 'Instagram', url: 'https://www.instagram.com/omriy.arts?stkn=cGx0MjE1M3loZzV3' },
-              { Icon: LinkedInIcon, label: 'LinkedIn', url: 'https://www.linkedin.com/in/hitesh-indersen-israni/' },
-              { Icon: YoutubeIcon,   label: 'YouTube', url: '#' }].map(({ Icon, label, url }) => (
+            {[{ Icon: FacebookIcon, label: 'Facebook', url: 'https://www.facebook.com/omriy.arts' },
+              { Icon: InstagramIcon, label: 'Instagram', url: 'https://www.instagram.com/omriy.arts?stkn=cGx0MjE1M3loZzV3' },
+              { Icon: LinkedInIcon, label: 'LinkedIn', url: 'https://www.linkedin.com/in/hitesh-indersen-israni' },
+              { Icon: YoutubeIcon,   label: 'YouTube', url: 'https://youtube.com/@omriyart?si=SKbY_lsFHgBvv2Lc' }].map(({ Icon, label, url }) => (
               <a key={label} href={url} target={url !== '#' ? '_blank' : undefined} rel={url !== '#' ? 'noreferrer' : undefined} aria-label={label}
                 className="text-gray-600 hover:text-[var(--color-gold-light)] transition-colors">
                 <Icon />
@@ -79,13 +75,28 @@ const Footer = () => (
         </div>
 
         <FooterCol title="Shop"
-          links={['All Collections','Bestsellers','New Arrivals','Gift Cards']} />
+          links={[
+            { label: 'All Collections', path: '/collections' },
+            { label: 'Bestsellers', path: '/collections?best_seller=true' },
+            { label: 'New Arrivals', path: '/collections' },
+            { label: 'Gift Cards', path: '/collections' }
+          ]} />
 
         <FooterCol title="About"
-          links={['Our Story','Artisans','Sustainability','Journal']} />
+          links={[
+            { label: 'Our Story', path: '/about' },
+            { label: 'Artisans', path: '/about' },
+            { label: 'Sustainability', path: '/about' },
+            { label: 'Journal', path: '/blog' }
+          ]} />
 
         <FooterCol title="Customer Care"
-          links={['Shipping & Delivery','Returns & Exchanges','Care Guide','FAQs']} />
+          links={[
+            { label: 'Shipping & Delivery', path: '/contact' },
+            { label: 'Returns & Exchanges', path: '/contact' },
+            { label: 'Care Guide', path: '/contact' },
+            { label: 'FAQs', path: '/contact' }
+          ]} />
 
         {/* Contact */}
         <div>
@@ -95,7 +106,6 @@ const Footer = () => (
             <p>+1 (510) 203-9490</p>
             <p>804 N Weston Ln, Austin 78733 Texas</p>
           </address>
-          <GemOutline />
         </div>
       </div>
 
@@ -105,11 +115,11 @@ const Footer = () => (
                       text-[9.5px] text-gray-600 gap-3">
         <p className="tracking-wider uppercase">© 2025 OMRIY. All Rights Reserved.</p>
         <div className="flex items-center gap-3 tracking-wider uppercase">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Privacy Policy</Link>
           <span className="opacity-30">·</span>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Terms of Service</Link>
           <span className="opacity-30">·</span>
-          <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </div>

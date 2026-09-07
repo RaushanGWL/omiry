@@ -19,8 +19,8 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
   const displayProduct = {
     name: apiProduct?.name || 'Crystal Ganesha Sculpture',
     subtitle: apiProduct?.short_description || 'Handcrafted natural gemstone sculpture',
-    reviews: 24, // Mocked as not in API
-    rating: 5,   // Mocked as not in API
+    reviews: apiProduct?.rating_count ?? 24,
+    rating: apiProduct?.rating ?? 5,
     description: apiProduct?.description || 'A radiant symbol of wisdom and new beginnings, this Crystal Ganesha is meticulously handcrafted from natural clear quartz and adorned with 24K gold accents. Each detail reflects devotion, protection, and timeless artistry.',
     details: [
       { label: 'MATERIAL', value: apiProduct?.material },
@@ -30,14 +30,14 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
       { label: 'WEIGHT', value: apiProduct?.weight ? `${apiProduct.weight} ${apiProduct.weight_unit || 'kg'}` : null },
       { label: 'AUTHENTICITY', value: apiProduct?.authenticity },
     ].filter(d => d.value),
-    images: apiProduct?.product_images?.length 
-      ? [...apiProduct.product_images].sort((a,b) => a.sort_order - b.sort_order).map(img => img.image_url) 
+    images: apiProduct?.product_images?.length
+      ? [...apiProduct.product_images].sort((a, b) => a.sort_order - b.sort_order).map(img => img.image_url)
       : [
-          '/assets/images/crystal_deity.png',
-          '/assets/images/crystal_deity.png',
-          '/assets/images/crystal_deity.png',
-          '/assets/images/crystal_deity.png',
-        ],
+        '/assets/images/crystal_deity.png',
+        '/assets/images/crystal_deity.png',
+        '/assets/images/crystal_deity.png',
+        '/assets/images/crystal_deity.png',
+      ],
   };
 
   const handleQuantityChange = (delta) => {
@@ -47,7 +47,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
   return (
     <section className="bg-[var(--color-brand-light)] pt-8 pb-16">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-        
+
         {/* Breadcrumbs */}
         <nav className="flex items-center text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-8 font-medium">
           <Link to="/" className="hover:text-[var(--color-brand-dark)] transition-colors">Home</Link>
@@ -60,32 +60,31 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
         </nav>
 
         <div className="flex flex-col lg:flex-row lg:items-start gap-12 xl:gap-20">
-          
+
           {/* Left Column: Image Gallery */}
           <div className="flex-1 flex gap-4 xl:gap-6 relative">
-            
+
             {/* Thumbnails */}
             <div className="hidden sm:flex flex-col gap-4 w-20 xl:w-24 shrink-0">
               {displayProduct.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`border transition-colors duration-200 aspect-square overflow-hidden bg-white ${
-                    activeImageIndex === idx ? 'border-[var(--color-brand-dark)]' : 'border-[var(--color-border)] hover:border-gray-400'
-                  }`}
+                  className={`border transition-colors duration-200 aspect-square overflow-hidden bg-white ${activeImageIndex === idx ? 'border-[var(--color-brand-dark)]' : 'border-[var(--color-border)] hover:border-gray-400'
+                    }`}
                 >
                   <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
               <div className="flex justify-center mt-2">
                 <button className="text-[var(--color-brand-dark)] border border-[var(--color-border)] rounded-full p-2 bg-white hover:bg-gray-50 transition-colors">
-                   <ChevronRight size={14} className="rotate-90" />
+                  <ChevronRight size={14} className="rotate-90" />
                 </button>
               </div>
             </div>
 
             {/* Main Image */}
-            <div 
+            <div
               className="flex-1 relative bg-white border border-[var(--color-border)] w-full lg:w-[85%] lg:flex-none h-[80vh] overflow-hidden group flex items-center justify-center cursor-crosshair"
               onMouseEnter={() => setShowMagnifier(true)}
               onMouseLeave={() => setShowMagnifier(false)}
@@ -102,7 +101,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
 
               {/* Lens Overlay */}
               {showMagnifier && (
-                <div 
+                <div
                   className="absolute pointer-events-none hidden lg:block bg-blue-500/10 border border-blue-500/20"
                   style={{
                     width: '33.33%',
@@ -117,7 +116,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
 
             {/* Magnified Result */}
             {showMagnifier && (
-              <div 
+              <div
                 className="absolute top-0 left-full ml-12 xl:ml-20 w-[550px] xl:w-[650px] h-[80vh] bg-white border border-[var(--color-border)] z-50 hidden lg:block shadow-2xl"
                 style={{
                   backgroundImage: `url('${displayProduct.images[activeImageIndex]}')`,
@@ -141,7 +140,9 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
             <div className="flex items-center gap-2 mb-6">
               <div className="flex text-[var(--color-brand-dark)]">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-sm">★</span>
+                  <span key={i} className="text-sm">
+                    {i < Math.round(displayProduct.rating) ? '★' : '☆'}
+                  </span>
                 ))}
               </div>
               <span className="text-xs text-[var(--color-text-muted)]">({displayProduct.reviews} reviews)</span>
@@ -174,8 +175,8 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
 
             {/* Actions */}
             <div className="flex flex-col gap-3 mb-10">
-              <button 
-                onClick={() => onEnquire(apiProduct)} 
+              <button
+                onClick={() => onEnquire(apiProduct)}
                 className="w-full uppercase tracking-[0.2em] font-bold text-xs h-14 bg-[var(--color-brand-dark)] text-white hover:bg-[#3d256e] transition-colors"
               >
                 ENQUIRE NOW
