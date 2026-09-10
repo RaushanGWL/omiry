@@ -28,16 +28,18 @@ const ProductPage = () => {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
         const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-        const response = await fetch(`${supabaseUrl}/functions/v1/products`, {
+        const response = await fetch(`${supabaseUrl}/rest/v1/products?id=eq.${id}&select=*,product_images(*)`, {
           headers: {
-            'apikey': supabaseKey
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`
           }
         });
-        const json = await response.json();
+        const data = await response.json();
         
-        if (json.success && json.data) {
-          const foundProduct = json.data.find(p => String(p.id) === String(id));
-          setProduct(foundProduct || null);
+        if (data && data.length > 0) {
+          setProduct(data[0]);
+        } else {
+          setProduct(null);
         }
       } catch (error) {
         console.error('Failed to fetch product', error);

@@ -35,16 +35,16 @@ const ProductCard = ({ product, onEnquire }) => {
         </div>
       </Link>
 
-      <div className="p-6 text-center bg-white flex flex-col justify-between flex-1">
+      <div className="p-4 md:p-5 text-center bg-white flex flex-col">
         <div>
-          <h3 className="text-base font-bold uppercase tracking-[0.15em] mb-1.5 line-clamp-1" style={{ color: 'var(--color-brand-dark)' }} title={name}>
+          <h3 className="text-base font-bold uppercase tracking-[0.15em] mb-1 line-clamp-1" style={{ color: 'var(--color-brand-dark)' }} title={name}>
             {name}
           </h3>
-          <p className="text-sm font-light leading-relaxed mb-4 uppercase tracking-[0.1em] line-clamp-2" style={{ color: 'var(--color-text-muted)' }} title={subtitle}>
+          <p className="text-sm font-light leading-relaxed mb-3 uppercase tracking-[0.1em] line-clamp-3" style={{ color: 'var(--color-text-muted)' }} title={subtitle}>
             {subtitle}
           </p>
         </div>
-        <div className="pt-4 border-t border-[#F0EBE3] flex gap-2">
+        <div className="pt-3 mt-auto border-t border-[#F0EBE3] flex gap-2">
           <Link to={`/products/${id}`} className="flex-1 text-xs border border-[var(--color-brand-dark)] text-[var(--color-brand-dark)] py-3 uppercase tracking-[0.15em] font-bold hover:bg-gray-50 flex items-center justify-center transition-colors">
             View Product
           </Link>

@@ -95,9 +95,7 @@ const ProductHeroSection = ({ product: apiProduct, onEnquire }) => {
                 alt={displayProduct.name}
                 className="w-[85%] h-[85%] object-contain"
               />
-              <button className="absolute bottom-6 right-6 bg-white rounded-full p-3 shadow-md hover:scale-105 transition-transform text-[var(--color-brand-dark)] z-10">
-                <Search size={18} />
-              </button>
+
 
               {/* Lens Overlay */}
               {showMagnifier && (
