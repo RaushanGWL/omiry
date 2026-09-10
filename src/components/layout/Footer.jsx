@@ -6,28 +6,28 @@ import { Link } from 'react-router-dom';
 /* Inline SVG social icons */
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5"/>
-    <circle cx="12" cy="12" r="4"/>
-    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+    <rect x="2" y="2" width="20" height="20" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
   </svg>
 );
 const LinkedInIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 );
 const YoutubeIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
   </svg>
 );
 
 const FacebookIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
 
@@ -57,15 +57,15 @@ const Footer = () => (
         <div className="col-span-2 md:col-span-1">
           <div className="font-serif text-[22px] tracking-[0.28em] text-[#B78A49] mb-4">OMRIY</div>
           <p className="text-xs text-gray-500 font-light leading-relaxed mb-6">
-            Timeless gemstone sculptures,<br/>
-            handcrafted with devotion<br/>
+            Timeless gemstone sculptures,<br />
+            handcrafted with devotion<br />
             and designed to inspire.
           </p>
           <div className="flex items-center gap-4">
             {[{ Icon: FacebookIcon, label: 'Facebook', url: 'https://www.facebook.com/omriy.arts' },
-              { Icon: InstagramIcon, label: 'Instagram', url: 'https://www.instagram.com/omriy.arts?stkn=cGx0MjE1M3loZzV3' },
-              { Icon: LinkedInIcon, label: 'LinkedIn', url: 'https://www.linkedin.com/in/hitesh-indersen-israni' },
-              { Icon: YoutubeIcon,   label: 'YouTube', url: 'https://youtube.com/@omriyart?si=SKbY_lsFHgBvv2Lc' }].map(({ Icon, label, url }) => (
+            { Icon: InstagramIcon, label: 'Instagram', url: 'https://www.instagram.com/omriy.arts?stkn=cGx0MjE1M3loZzV3' },
+            { Icon: LinkedInIcon, label: 'LinkedIn', url: 'https://www.linkedin.com/in/hitesh-indersen-israni' },
+            { Icon: YoutubeIcon, label: 'YouTube', url: 'https://youtube.com/@omriyart?si=SKbY_lsFHgBvv2Lc' }].map(({ Icon, label, url }) => (
               <a key={label} href={url} target={url !== '#' ? '_blank' : undefined} rel={url !== '#' ? 'noreferrer' : undefined} aria-label={label}
                 className="text-gray-600 hover:text-[var(--color-gold-light)] transition-colors">
                 <Icon />
@@ -79,14 +79,12 @@ const Footer = () => (
             { label: 'All Collections', path: '/collections' },
             { label: 'Bestsellers', path: '/collections?best_seller=true' },
             { label: 'New Arrivals', path: '/collections' },
-            { label: 'Gift Cards', path: '/collections' }
           ]} />
 
         <FooterCol title="About"
           links={[
             { label: 'Our Story', path: '/about' },
             { label: 'Artisans', path: '/about' },
-            { label: 'Sustainability', path: '/about' },
             { label: 'Journal', path: '/blog' }
           ]} />
 
@@ -95,7 +93,7 @@ const Footer = () => (
             { label: 'Shipping & Delivery', path: '/contact' },
             { label: 'Returns & Exchanges', path: '/contact' },
             { label: 'Care Guide', path: '/contact' },
-            { label: 'FAQs', path: '/contact' }
+            { label: 'FAQs', path: '/#faqs' }
           ]} />
 
         {/* Contact */}
@@ -111,16 +109,9 @@ const Footer = () => (
 
       {/* Bottom bar */}
       <div className="border-t border-white/[0.07] pt-5
-                      flex flex-col md:flex-row items-center justify-between
+                      flex flex-col items-center justify-center
                       text-[9.5px] text-gray-600 gap-3">
         <p className="tracking-wider uppercase">© 2025 OMRIY. All Rights Reserved.</p>
-        <div className="flex items-center gap-3 tracking-wider uppercase">
-          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Privacy Policy</Link>
-          <span className="opacity-30">·</span>
-          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Terms of Service</Link>
-          <span className="opacity-30">·</span>
-          <Link to="#" onClick={scrollToTop} className="hover:text-white transition-colors">Cookie Policy</Link>
-        </div>
       </div>
     </div>
   </footer>

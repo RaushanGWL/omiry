@@ -69,7 +69,7 @@ const FAQSection = ({ blogId, isHome }) => {
   }
 
   return (
-    <section className="py-20 px-6 md:px-12 lg:px-24 bg-white border-t border-[var(--color-border)]">
+    <section id="faqs" className="py-20 px-6 md:px-12 lg:px-24 bg-white border-t border-[var(--color-border)]">
       <div className="max-w-[800px] mx-auto">
         <div className="text-center mb-12">
           <SectionLabel text="F.A.Q." />

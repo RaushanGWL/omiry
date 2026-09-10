@@ -100,7 +100,7 @@ const ContactPage = () => {
                 <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-brand-dark)] mb-3">Business Hours</h3>
                 <p className="text-sm font-light text-[var(--color-text-body)] leading-relaxed">
                   Monday – Friday<br />
-                  9:00 AM – 6:00 PM (EST)
+                  9:00 AM – 6:00 PM (CST)
                 </p>
               </div>
             </div>
