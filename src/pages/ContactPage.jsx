@@ -20,11 +20,11 @@ const ContactPage = () => {
     const mobile = formData.get('mobile');
 
     try {
-      const response = await fetch('https://qmfsodjevoooohalsorw.supabase.co/functions/v1/contact-info', {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact-info`, {
         method: 'POST',
         headers: {
-          'apikey': 'sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
-          'Authorization': 'Bearer sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L',
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

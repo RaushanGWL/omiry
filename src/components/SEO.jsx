@@ -13,7 +13,7 @@ const SEO = ({ pageKey, customSeoData }) => {
 
     const fetchSEO = async () => {
       try {
-        const response = await fetch(`https://qmfsodjevoooohalsorw.supabase.co/functions/v1/omriy-seo?page_key=${pageKey}`);
+        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/omriy-seo?page_key=${pageKey}`);
         const result = await response.json();
         
         if (result.success && result.data) {

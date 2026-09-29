@@ -3,8 +3,8 @@ import { BlogCard } from '../components/ui';
 import SEO from '../components/SEO';
 import { CTASection } from '../sections';
 
-const BLOGS_API_URL = 'https://qmfsodjevoooohalsorw.supabase.co/functions/v1/blogs';
-const BLOGS_API_KEY = 'sb_publishable_Z5tGv2QtmwQRn4VqDCTesA_xQ9Im99L';
+const BLOGS_API_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blogs`;
+const BLOGS_API_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
