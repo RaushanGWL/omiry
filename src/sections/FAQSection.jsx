@@ -11,10 +11,11 @@ const FAQSection = ({ blogId, isHome }) => {
 
   useEffect(() => {
     let url = '';
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
     if (blogId) {
-      url = `https://qmfsodjevoooohalsorw.supabase.co/rest/v1/faqs?type=eq.blog&blog_id=eq.${blogId}&is_active=eq.true&order=sort_order.asc`;
+      url = `${supabaseUrl}/rest/v1/faqs?type=eq.blog&blog_id=eq.${blogId}&is_active=eq.true&order=sort_order.asc`;
     } else if (isHome) {
-      url = `https://qmfsodjevoooohalsorw.supabase.co/rest/v1/faqs?type=eq.home&is_active=eq.true&order=sort_order.asc`;
+      url = `${supabaseUrl}/rest/v1/faqs?type=eq.home&is_active=eq.true&order=sort_order.asc`;
     }
 
     if (url) {
@@ -23,7 +24,7 @@ const FAQSection = ({ blogId, isHome }) => {
         try {
           const res = await fetch(url, {
             headers: {
-              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFtZnNvZGpldm9vb29oYWxzb3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyOTA4NzIsImV4cCI6MjEwMTg2Njg3Mn0.ZT32g9WVbevgQIVgISoiRGtz3IxXsCVtQ-qSpqavyK8',
+              'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
               'Content-Type': 'application/json'
             }
           });
